@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>全网休闲零食市场分析 · Y25</title>
+<script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #0f1117; color: #e2e8f0; font-family: -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif; min-height: 100vh; }
+  .header { background: linear-gradient(135deg, #1a1f2e 0%, #0f1117 100%); border-bottom: 1px solid #2d3748; padding: 32px 40px 24px; }
+  .header-top { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
+  .badge { background: #3b82f6; color: #fff; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 20px; letter-spacing: 1px; }
+  .badge-yellow { background: #d97706; }
+  h1 { font-size: 26px; font-weight: 700; color: #f1f5f9; }
+  .subtitle { color: #94a3b8; font-size: 13px; margin-top: 6px; }
+  .kpi-row { display: flex; gap: 16px; padding: 24px 40px; flex-wrap: wrap; }
+  .kpi-card { background: #1a1f2e; border: 1px solid #2d3748; border-radius: 12px; padding: 20px 24px; flex: 1; min-width: 180px; }
+  .kpi-label { font-size: 12px; color: #64748b; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .kpi-value { font-size: 28px; font-weight: 700; color: #f1f5f9; }
+  .kpi-sub { font-size: 12px; margin-top: 4px; }
+  .kpi-up { color: #10b981; } .kpi-down { color: #ef4444; } .kpi-neutral { color: #94a3b8; }
+  .section { padding: 0 40px 32px; }
+  .section-title { font-size: 15px; font-weight: 600; color: #cbd5e1; margin-bottom: 16px; padding-left: 10px; border-left: 3px solid #3b82f6; display: flex; align-items: center; gap: 8px; }
+  .charts-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px; }
+  .chart-card { background: #1a1f2e; border: 1px solid #2d3748; border-radius: 12px; padding: 20px; }
+  .chart-card.full { grid-column: 1 / -1; }
+  .chart-title { font-size: 13px; color: #94a3b8; margin-bottom: 14px; font-weight: 500; }
+  .chart-box { width: 100%; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  thead th { background: #0f1117; color: #64748b; font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; padding: 10px 14px; text-align: left; border-bottom: 1px solid #2d3748; }
+  tbody tr { border-bottom: 1px solid #1e2538; transition: background .15s; }
+  tbody tr:hover { background: #1e2538; }
+  tbody td { padding: 10px 14px; color: #cbd5e1; }
+  .rank { color: #475569; font-weight: 700; width: 30px; }
+  .cat-name { font-weight: 500; color: #e2e8f0; }
+  .cat-l2 { color: #64748b; font-size: 11px; }
+  .bar-cell { display: flex; align-items: center; gap: 8px; }
+  .bar-bg { background: #1e2538; border-radius: 4px; height: 6px; flex: 1; max-width: 120px; }
+  .bar-fill { background: linear-gradient(90deg, #3b82f6, #60a5fa); border-radius: 4px; height: 6px; }
+  .pill { display: inline-flex; align-items: center; gap: 3px; padding: 2px 8px; border-radius: 20px; font-size: 11px; font-weight: 600; }
+  .pill-up { background: rgba(16,185,129,.15); color: #10b981; }
+  .pill-down { background: rgba(239,68,68,.15); color: #ef4444; }
+  .pill-new { background: rgba(139,92,246,.15); color: #a78bfa; }
+  .pill-hot { background: rgba(245,158,11,.15); color: #f59e0b; }
+  .pill-flat { background: rgba(100,116,139,.12); color: #94a3b8; }
+  .insight-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-bottom: 20px; }
+  .insight-card { background: #1a1f2e; border: 1px solid #2d3748; border-radius: 12px; padding: 18px 20px; }
+  .insight-icon { font-size: 22px; margin-bottom: 10px; }
+  .insight-title { font-size: 12px; color: #94a3b8; margin-bottom: 6px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+  .insight-body { font-size: 13px; color: #cbd5e1; line-height: 1.6; }
+  .insight-body strong { color: #f1f5f9; }
+  .footer { padding: 20px 40px; color: #475569; font-size: 12px; border-top: 1px solid #1e2538; margin-top: 8px; }
+  @media (max-width: 900px) {
+    .charts-grid { grid-template-columns: 1fr; }
+    .insight-grid { grid-template-columns: 1fr; }
+    .kpi-row { flex-direction: column; }
+    .header, .kpi-row, .section { padding-left: 20px; padding-right: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-top">
+    <span class="badge">全网电商</span>
+    <span class="badge badge-yellow">Y25 全年</span>
+  </div>
+  <h1>🍿 休闲零食市场分析报告</h1>
+  <div class="subtitle">数据来源：全网电商数据集（dataset id: 10666） · 一级类目：零食/坚果/特产 · 统计口径：Y2025 vs Y2024 全年销售额</div>
+</div>
+
+<div class="kpi-row">
+  <div class="kpi-card">
+    <div class="kpi-label">Y25 GMV 总量</div>
+    <div class="kpi-value">¥1,178亿</div>
+    <div class="kpi-sub kpi-down">▼ 3.6% vs Y24 ¥1,223亿</div>
+  </div>
+  <div class="kpi-card">
+    <div class="kpi-label">三级类目数量</div>
+    <div class="kpi-value">240</div>
+    <div class="kpi-sub kpi-neutral">含新增类目若干</div>
+  </div>
+  <div class="kpi-card">
+    <div class="kpi-label">Top1 类目（二级）</div>
+    <div class="kpi-value">坚果炒货</div>
+    <div class="kpi-sub kpi-down">¥169亿 ▼ 7.5%</div>
+  </div>
+  <div class="kpi-card">
+    <div class="kpi-label">增速最快（三级）</div>
+    <div class="kpi-value">酥性饼干</div>
+    <div class="kpi-sub kpi-up">¥9.7亿 ▲ +383%</div>
+  </div>
+  <div class="kpi-card">
+    <div class="kpi-label">跌幅最大（三级）</div>
+    <div class="kpi-value">混合坚果</div>
+    <div class="kpi-sub kpi-down">¥21.2亿 ▼ -51%</div>
+  </div>
+</div>
+
+<!-- 图表区 -->
+<div class="section">
+  <div class="section-title">📊 二级类目 GMV 分布 & YOY</div>
+  <div class="charts-grid">
+    <div class="chart-card">
+      <div class="chart-title">Y25 GMV 二级类目占比（按GMV排序，Top12）</div>
+      <div class="chart-box" id="pie1" style="height:360px"></div>
+    </div>
+    <div class="chart-card">
+      <div class="chart-title">二级类目 YOY 增速（%）</div>
+      <div class="chart-box" id="bar_yoy_l2" style="height:360px"></div>
+    </div>
+    <div class="chart-card full">
+      <div class="chart-title">三级类目 GMV Top30 · 气泡大小 = GMV，横轴 = YOY增速</div>
+      <div class="chart-box" id="bubble" style="height:420px"></div>
+    </div>
+  </div>
+</div>
+
+<!-- 洞察 -->
+<div class="section">
+  <div class="section-title">💡 核心洞察</div>
+  <div class="insight-grid">
+    <div class="insight-card">
+      <div class="insight-icon">📉</div>
+      <div class="insight-title">大盘承压</div>
+      <div class="insight-body">Y25 整体GMV <strong>¥1,178亿</strong>，同比 <strong>-3.6%</strong>。市场整体进入存量竞争阶段，主力品类（混合坚果-51%、膨化食品-48%、鸡肉零食-41%）跌幅明显，竞争格局在重塑。</div>
+    </div>
+    <div class="insight-card">
+      <div class="insight-icon">🎂</div>
+      <div class="insight-title">糕点崛起</div>
+      <div class="insight-body"><strong>糕点/点心</strong> GMV ¥133亿，YOY <strong>+202%</strong>，是唯一规模+200%以上的大二级类目。传统糕点（¥47亿+15%）、月饼（¥35亿+26%）、短保烘焙（¥35亿+26%）同步高增，新中式赛道红利明显。</div>
+    </div>
+    <div class="insight-card">
+      <div class="insight-icon">🔥</div>
+      <div class="insight-title">饼干品类重构</div>
+      <div class="insight-body"><strong>饼干</strong>品类整体 <strong>+351%</strong>——注意：系类目重分（新增「饼干」子类目）而非真实增量。酥性饼干+383%、夹心饼干+357%、薄脆+335%、曲奇+382%均高增，说明精细化品类正在抢夺「饼干/膨化」旧类目的份额。</div>
+    </div>
+    <div class="insight-card">
+      <div class="insight-icon">🥩</div>
+      <div class="insight-title">肉类零食分化</div>
+      <div class="insight-body">旧口径「牛肉类」(-35%)、「鸡肉零食」(-41%) 大幅下滑，但新口径「牛肉熟食/牛肉零食」、「鸡肉熟食/鸡肉零食」为新增类目，说明肉零食品类在重新切割。实际市场规模需合并同类项判断。</div>
+    </div>
+    <div class="insight-card">
+      <div class="insight-icon">🌰</div>
+      <div class="insight-title">坚果内部分化</div>
+      <div class="insight-body">混合坚果 <strong>-51%</strong> 明显萎缩，但坚果礼盒/礼包 <strong>+130%</strong> 快速增长，松子+11%、花生+8%稳健。消费者从日常散装走向礼赠场景，单品质量更受关注。</div>
+    </div>
+    <div class="insight-card">
+      <div class="insight-icon">🍫</div>
+      <div class="insight-title">巧克力温和增长</div>
+      <div class="insight-body">巧克力板块整体 <strong>+4.6%</strong>，其中巧克力制品 <strong>+45%</strong>、坚果礼盒/礼包 <strong>+130%</strong> 表现亮眼。高可可/精品巧克力渗透率提升，拉动结构升级。</div>
+    </div>
+  </div>
+</div>
+
+<!-- 三级类目详表 -->
+<div class="section">
+  <div class="section-title">📋 三级类目明细 · Top40（按Y25 GMV降序）</div>
+  <div class="chart-card" style="padding: 0; overflow:hidden;">
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>三级类目</th>
+          <th>所属二级类目</th>
+          <th>Y25 GMV</th>
+          <th>占比</th>
+          <th>Y24 GMV</th>
+          <th>YOY</th>
+        </tr>
+      </thead>
+      <tbody id="tbody"></tbody>
+    </table>
+  </div>
+</div>
+
+<div class="footer">
+  数据口径：全网电商（含天猫/淘宝/京东/拼多多等主流平台） · 一级类目 = 零食/坚果/特产 · Y25 = 2025年全年 · Y24 = 2024年全年 · 注意：部分类目 YOY 异常（如+300%以上）系平台类目重构/拆分所致，非真实增量，分析时需结合合并口径判断
+</div>
+
+<script>
+// =================== 数据 ===================
+const l2Data = [
+  { name: "山核桃/坚果/炒货", gmv25: 169.48, gmv24: 183.31, yoy: -7.5 },
+  { name: "肉干肉脯/卤味", gmv25: 150.19, gmv24: 126.04, yoy: +19.2 },
+  { name: "糕点/点心", gmv25: 133.04, gmv24: 44.11, yoy: +201.6 },
+  { name: "蜜饯/果干/水果制品", gmv25: 75.87, gmv24: 60.75, yoy: +24.9 },
+  { name: "饼干/膨化", gmv25: 75.68, gmv24: 145.72, yoy: -48.1 },
+  { name: "牛肉干/猪肉脯/卤味零食", gmv25: 69.05, gmv24: 83.29, yoy: -17.1 },
+  { name: "蜜饯/枣类/梅/果干/冻干", gmv25: 52.95, gmv24: 63.73, yoy: -16.9 },
+  { name: "巧克力", gmv25: 52.25, gmv24: 49.95, yoy: +4.6 },
+  { name: "糖果零食/果冻/布丁", gmv25: 49.56, gmv24: 44.12, yoy: +12.3 },
+  { name: "饼干（新口径）", gmv25: 46.77, gmv24: 10.38, yoy: +350.7 },
+  { name: "中式糕点", gmv25: 44.42, gmv24: 59.91, yoy: -25.9 },
+  { name: "豆干制品/蔬菜干", gmv25: 43.33, gmv24: 48.39, yoy: -10.5 },
+  { name: "西式糕点", gmv25: 38.16, gmv24: 51.90, yoy: -26.5 },
+  { name: "糖果零食", gmv25: 36.41, gmv24: 45.93, yoy: -20.7 },
+  { name: "膨化食品（新口径）", gmv25: 26.79, gmv24: 5.99, yoy: +346.9 },
+];
+
+const l3Data = [
+  { rank:1,  name:"传统糕点",       l2:"糕点/点心",     gmv25:47.40, gmv24:41.21, yoy:+15.0 },
+  { rank:2,  name:"饼干（新）",     l2:"饼干/膨化",     gmv25:43.09, gmv24:55.15, yoy:-21.9 },
+  { rank:3,  name:"糖果",           l2:"糖果零食/果冻", gmv25:39.98, gmv24:36.08, yoy:+10.8 },
+  { rank:4,  name:"牛肉类",         l2:"肉干肉脯",      gmv25:39.07, gmv24:60.36, yoy:-35.3 },
+  { rank:5,  name:"中式糕点/新中式",l2:"中式糕点",      gmv25:35.90, gmv24:50.95, yoy:-29.5 },
+  { rank:6,  name:"鸡肉零食",       l2:"肉干肉脯",      gmv25:35.78, gmv24:61.00, yoy:-41.3 },
+  { rank:7,  name:"月饼",           l2:"糕点/点心",     gmv25:35.00, gmv24:27.69, yoy:+26.4 },
+  { rank:8,  name:"短保烘焙/鲜蛋糕",l2:"糕点/点心",     gmv25:34.90, gmv24:27.69, yoy:+26.0 },
+  { rank:9,  name:"传统西式糕点",   l2:"西式糕点",      gmv25:31.54, gmv24:44.28, yoy:-28.8 },
+  { rank:10, name:"膨化食品",       l2:"饼干/膨化",     gmv25:31.24, gmv24:59.51, yoy:-47.5 },
+  { rank:11, name:"牛肉熟食/牛肉零食",l2:"肉干肉脯",   gmv25:30.15, gmv24:0,     yoy:null  },
+  { rank:12, name:"鸡肉熟食/鸡肉零食",l2:"肉干肉脯",  gmv25:24.33, gmv24:0,     yoy:null  },
+  { rank:13, name:"鸭肉零食",       l2:"肉干肉脯",      gmv25:24.27, gmv24:40.28, yoy:-39.8 },
+  { rank:14, name:"传统糖果",       l2:"糖果零食",      gmv25:24.09, gmv24:29.99, yoy:-19.7 },
+  { rank:15, name:"瓜子",           l2:"山核桃/坚果",   gmv25:22.26, gmv24:22.37, yoy:-0.5  },
+  { rank:16, name:"枣类制品",       l2:"蜜饯/枣类",     gmv25:21.25, gmv24:21.30, yoy:-0.2  },
+  { rank:17, name:"混合坚果",       l2:"山核桃/坚果",   gmv25:21.16, gmv24:43.11, yoy:-50.9 },
+  { rank:18, name:"花生",           l2:"山核桃/坚果",   gmv25:20.44, gmv24:18.88, yoy:+8.3  },
+  { rank:19, name:"猪肉类",         l2:"肉干肉脯",      gmv25:17.52, gmv24:29.26, yoy:-40.1 },
+  { rank:20, name:"鸭肉熟食/鸭肉零食",l2:"肉干肉脯",  gmv25:17.51, gmv24:0,     yoy:null  },
+  { rank:21, name:"梅类制品",       l2:"蜜饯/枣类",     gmv25:16.99, gmv24:17.28, yoy:-1.7  },
+  { rank:22, name:"西式糕点",       l2:"糕点/点心",     gmv25:14.91, gmv24:19.86, yoy:-25.0 },
+  { rank:23, name:"豆腐干",         l2:"豆干制品",      gmv25:14.90, gmv24:17.23, yoy:-13.5 },
+  { rank:24, name:"面筋制品",       l2:"豆干制品",      gmv25:13.80, gmv24:16.70, yoy:-17.3 },
+  { rank:25, name:"松子",           l2:"山核桃/坚果",   gmv25:13.23, gmv24:11.93, yoy:+10.9 },
+  { rank:26, name:"巧克力制品",     l2:"巧克力",        gmv25:12.43, gmv24:8.55,  yoy:+45.5 },
+  { rank:27, name:"即食鱼零食",     l2:"鱿鱼丝/海味",   gmv25:12.28, gmv24:13.92, yoy:-11.8 },
+  { rank:28, name:"坚果礼盒/礼包",  l2:"山核桃/坚果",   gmv25:11.74, gmv24:5.10,  yoy:+130.2},
+  { rank:29, name:"山楂类制品",     l2:"蜜饯/枣类",     gmv25:11.52, gmv24:9.53,  yoy:+20.9 },
+  { rank:30, name:"豆类制品",       l2:"山核桃/坚果",   gmv25:11.25, gmv24:9.61,  yoy:+17.0 },
+  { rank:31, name:"猪肉熟食/猪肉零食",l2:"肉干肉脯",  gmv25:11.10, gmv24:0,     yoy:null  },
+  { rank:32, name:"牛奶巧克力",     l2:"巧克力",        gmv25:10.67, gmv24:11.55, yoy:-7.6  },
+  { rank:33, name:"吐司面包",       l2:"西式糕点",      gmv25:9.95,  gmv24:5.04,  yoy:+97.6 },
+  { rank:34, name:"陈皮",           l2:"蜜饯/枣类",     gmv25:9.87,  gmv24:7.86,  yoy:+25.6 },
+  { rank:35, name:"夏威夷果",       l2:"山核桃/坚果",   gmv25:9.75,  gmv24:11.17, yoy:-12.7 },
+  { rank:36, name:"酥性饼干",       l2:"饼干（新口径）", gmv25:9.73, gmv24:2.02,  yoy:+382.7},
+  { rank:37, name:"腰果",           l2:"山核桃/坚果",   gmv25:9.68,  gmv24:10.38, yoy:-6.8  },
+  { rank:38, name:"其他脆片",       l2:"膨化食品",      gmv25:8.23,  gmv24:1.94,  yoy:+323.3},
+  { rank:39, name:"黑巧克力",       l2:"巧克力",        gmv25:7.32,  gmv24:7.15,  yoy:+2.4  },
+  { rank:40, name:"坚果礼盒",       l2:"山核桃/坚果",   gmv25:7.27,  gmv24:13.19, yoy:-44.9 },
+];
+
+// =================== 表格渲染 ===================
+const tbody = document.getElementById('tbody');
+const totalGmv25 = 1178; // 亿
+l3Data.forEach(d => {
+  const pct = (d.gmv25 / totalGmv25 * 100).toFixed(1);
+  const barW = Math.min(d.gmv25 / 50 * 100, 100);
+  let yoyHtml = '';
+  if (d.yoy === null) {
+    yoyHtml = `<span class="pill pill-new">新增类目</span>`;
+  } else if (d.yoy >= 100) {
+    yoyHtml = `<span class="pill pill-hot">🔥 +${d.yoy.toFixed(1)}%</span>`;
+  } else if (d.yoy > 0) {
+    yoyHtml = `<span class="pill pill-up">▲ +${d.yoy.toFixed(1)}%</span>`;
+  } else if (d.yoy > -10) {
+    yoyHtml = `<span class="pill pill-flat">${d.yoy.toFixed(1)}%</span>`;
+  } else {
+    yoyHtml = `<span class="pill pill-down">▼ ${d.yoy.toFixed(1)}%</span>`;
+  }
+  tbody.innerHTML += `
+    <tr>
+      <td class="rank">${d.rank}</td>
+      <td><div class="cat-name">${d.name}</div></td>
+      <td><div class="cat-l2">${d.l2}</div></td>
+      <td>
+        <div class="bar-cell">
+          <div class="bar-bg"><div class="bar-fill" style="width:${barW}%"></div></div>
+          <span style="color:#e2e8f0;font-weight:600;">¥${d.gmv25}亿</span>
+        </div>
+      </td>
+      <td style="color:#94a3b8;">${pct}%</td>
+      <td style="color:#64748b;">${d.gmv24 > 0 ? '¥'+d.gmv24+'亿' : '—'}</td>
+      <td>${yoyHtml}</td>
+    </tr>
+  `;
+});
+
+// =================== 图表1: 饼图 ===================
+const pie1 = echarts.init(document.getElementById('pie1'));
+// 过滤掉类目重构的异常项用于饼图
+const pieData = l2Data
+  .filter(d => !d.name.includes('新口径') && d.gmv25 > 20)
+  .sort((a,b) => b.gmv25 - a.gmv25)
+  .map(d => ({ name: d.name.replace('/坚果/炒货','炒货').replace('/枣类/梅/果干/冻干','等蜜饯'), value: d.gmv25 }));
+
+pie1.setOption({
+  backgroundColor: 'transparent',
+  tooltip: { trigger: 'item', formatter: '{b}<br/>GMV: ¥{c}亿 ({d}%)', backgroundColor:'#1e2538', borderColor:'#3b82f6', textStyle:{color:'#e2e8f0'} },
+  legend: { orient:'vertical', right:0, top:'center', textStyle:{color:'#94a3b8', fontSize:11}, itemWidth:10, itemHeight:10 },
+  series: [{
+    type: 'pie', radius: ['40%','70%'], center:['38%','50%'],
+    itemStyle: { borderColor:'#0f1117', borderWidth: 2 },
+    label: { show: false },
+    data: pieData,
+    color: ['#3b82f6','#10b981','#f59e0b','#8b5cf6','#ef4444','#06b6d4','#ec4899','#84cc16','#f97316','#14b8a6','#a855f7','#fbbf24']
+  }]
+});
+
+// =================== 图表2: YOY 横条图 ===================
+const barYoyL2 = echarts.init(document.getElementById('bar_yoy_l2'));
+const l2Filtered = l2Data.filter(d => !d.name.includes('新口径')).sort((a,b) => a.yoy - b.yoy);
+barYoyL2.setOption({
+  backgroundColor: 'transparent',
+  tooltip: { trigger:'axis', backgroundColor:'#1e2538', borderColor:'#3b82f6', textStyle:{color:'#e2e8f0'},
+    formatter: p => `${p[0].name}<br/>YOY: <b>${p[0].value > 0 ? '+' : ''}${p[0].value}%</b>` },
+  grid: { left: 160, right: 30, top: 10, bottom: 10 },
+  xAxis: { type:'value', axisLine:{show:false}, splitLine:{lineStyle:{color:'#2d3748'}}, axisLabel:{color:'#64748b',formatter:v=>v+'%'} },
+  yAxis: { type:'category', data: l2Filtered.map(d=>d.name.length>10?d.name.slice(0,10)+'…':d.name), axisLabel:{color:'#94a3b8',fontSize:12}, axisLine:{show:false}, axisTick:{show:false} },
+  series: [{
+    type:'bar', data: l2Filtered.map(d=>d.yoy), barMaxWidth: 20,
+    itemStyle: { borderRadius:4, color: p => p.value >= 0 ? '#10b981' : '#ef4444' },
+    label: { show:true, position: p => p.value >= 0 ? 'right' : 'left', color:'#94a3b8', fontSize:11, formatter: p => (p.value>0?'+':'')+p.value+'%' }
+  }]
+});
+
+// =================== 图表3: 气泡图 ===================
+const bubble = echarts.init(document.getElementById('bubble'));
+const validL3 = l3Data.filter(d => d.yoy !== null && Math.abs(d.yoy) < 200);
+bubble.setOption({
+  backgroundColor: 'transparent',
+  tooltip: {
+    trigger: 'item', backgroundColor:'#1e2538', borderColor:'#3b82f6', textStyle:{color:'#e2e8f0'},
+    formatter: p => {
+      const d = p.data;
+      return `<b>${d[3]}</b><br/>${d[4]}<br/>Y25 GMV: ¥${d[2]}亿<br/>YOY: ${d[0]>0?'+':''}${d[0].toFixed(1)}%`;
+    }
+  },
+  grid: { left:60, right:20, top:30, bottom:50 },
+  xAxis: {
+    name: 'YOY增速(%)', nameLocation:'middle', nameGap:30, nameTextStyle:{color:'#64748b'},
+    axisLine:{lineStyle:{color:'#2d3748'}}, splitLine:{lineStyle:{color:'#1e2538',type:'dashed'}},
+    axisLabel:{color:'#64748b', formatter:v=>v+'%'}
+  },
+  yAxis: {
+    name: 'Y25 GMV(亿)', nameLocation:'middle', nameGap:40, nameTextStyle:{color:'#64748b'},
+    axisLine:{lineStyle:{color:'#2d3748'}}, splitLine:{lineStyle:{color:'#1e2538',type:'dashed'}},
+    axisLabel:{color:'#64748b', formatter:v=>'¥'+v}
+  },
+  series: [{
+    type:'scatter',
+    data: validL3.map(d => [d.yoy, d.gmv25, d.gmv25, d.name, d.l2]),
+    symbolSize: d => Math.sqrt(d[2]) * 4.5,
+    itemStyle: {
+      color: p => {
+        const yoy = p.data[0];
+        if (yoy > 30) return '#10b981';
+        if (yoy > 0) return '#3b82f6';
+        if (yoy > -20) return '#f59e0b';
+        return '#ef4444';
+      },
+      opacity: 0.8
+    },
+    label: {
+      show: true,
+      formatter: p => p.data[3].length > 8 ? p.data[3].slice(0,8)+'…' : p.data[3],
+      color: '#cbd5e1', fontSize: 10,
+      position: 'top'
+    }
+  }],
+  // 参考线
+  graphic: [
+    { type:'line', shape:{x1:0,y1:30,x2:0,y2:380}, style:{stroke:'#475569',lineWidth:1,lineDash:[4,4]} }
+  ]
+});
+
+window.addEventListener('resize', () => {
+  pie1.resize(); barYoyL2.resize(); bubble.resize();
+});
+</script>
+</body>
+</html>
