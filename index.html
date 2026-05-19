@@ -137,6 +137,18 @@ footer{padding:16px 48px;color:#334155;font-size:11px;border-top:1px solid #1e25
 .ad-dot-yes{background:#10b981}
 .ad-dot-no{background:#ef4444}
 
+
+/* 广告投放标注 */
+.no-ad-badge{display:inline-block;padding:1px 6px;border-radius:4px;font-size:9px;font-weight:700;background:rgba(239,68,68,.15);color:#ef4444;border:1px solid rgba(239,68,68,.3);margin-left:4px;vertical-align:middle;flex-shrink:0}
+.bitem.no-ad .bnm{color:#fca5a5}
+.bitem.no-ad .bgmv{color:#f87171}
+.ad-flow-badge{display:inline-block;padding:1px 6px;border-radius:4px;font-size:9px;font-weight:700;background:rgba(16,185,129,.12);color:#10b981;border:1px solid rgba(16,185,129,.3);margin-left:4px;vertical-align:middle;flex-shrink:0}
+.ad-legend{display:flex;gap:16px;margin-bottom:14px;font-size:12px;align-items:center;flex-wrap:wrap}
+.ad-legend-item{display:flex;align-items:center;gap:5px}
+.ad-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.ad-dot-yes{background:#10b981}
+.ad-dot-no{background:#ef4444}
+
 </style>
 </head>
 <body>
@@ -653,50 +665,54 @@ function initCharts(){
 }
 </script>
 
+
 <script>
 (function() {
-  const noAdBrands = ["尚恰", "俏巴蜀", "果子开荟", "sugus", "嘎嘎嘴", "飞旺", "厨籽康", "暴走工坊", "乖不二", "老街口", "梅山古镇", "美好时光", "宫季每日鲜", "悦百汇", "喵小柚", "优姿曼", "好想你", "豆有味", "埃尔忒弥斯", "彩虹糖", "山姆会员店", "湘食季", "壹点壹滴", "爆湘", "齐云山", "虎小将", "盐津铺子", "益美滋", "悠哈", "世壮", "艾妍", "缺牙齿", "花田熊", "懒吃侠", "素十记", "陈阿炳", "思乡山", "酥姿", "致每", "mizunun", "格力高", "典趣", "二宝", "zirkulin", "老香农", "kissport", "乐事", "哈瑞宝", "瑞士莲", "南江桥", "闻绮", "口水娃", "西域华腾", "牧民人家", "西域皇后", "大嘴君", "琪雷萨", "桂格", "原本记忆", "慢严舒柠", "无穷", "食乐康", "笑辣辣", "卡乐b", "捍味", "茶颜清", "士力架", "安佳", "好时", "知味观", "祖名", "全福德", "好利来", "张笨仁", "馋小乖", "胡婆婆", "OMEK", "甜睡", "巧兮兮", "沃隆", "面包加", "湘扬农庄", "喜之郎", "舌溜溜", "双捷金雀", "福满棚", "农香森", "桃李", "豁尔臣", "旺家福", "金味", "欣善怡", "老板仔", "茶颜悦色", "润物说", "嘉华", "辣夫人", "馋小德", "米多奇", "小市一庄", "泰城谷匠", "良品生活", "歌帝梵", "光庆", "波力", "阴山优麦", "蒙都", "檬冻", "仓鼠行动", "脆香米", "泰尔", "喵在其中", "有零有食", "华味亨", "立兴", "农亨", "市舶士", "解龄", "海狸先生", "藤桥牌", "清净园", "珍享", "西域美农", "达利园", "卫道", "阿麦斯", "黄庄月饼", "三湘世家", "ZEK", "怡冠园", "妙飞", "老金磨方", "宏源", "丑八怪", "绿箭", "大大泡泡糖", "原果探鲜", "隆嘉盛", "朵娜贝拉", "良品铺子"];
-  const adFlowMap = {"三只松鼠": 61.8, "百草味": 3.2, "洽洽": 187.3, "旭东": 6.6, "三胖蛋": 107.4, "薛记炒货": 263.2, "甘源": 128.6, "王小卤": 107.4, "袋鼠先生": 261.1, "周黑鸭": 78.9, "寻香牧场": 72.4, "旺旺": 512.1, "甄磨坊": 37.1, "稻香村": 3.0, "比比赞": 6.2, "劲家庄": 105.2, "豪士": 6.0, "杨先生": 72.9, "徐福记": 248.2, "轩妈": 69.0, "泸溪河": 5.1, "脆升升": 439.0, "奥利奥": 1102.0, "江中食疗": 1201.3, "葡记": 76.2, "雀巢": 13671.4, "盼盼": 34.2, "茶口乐": 42.6, "大白兔": 50.3, "筷小喵": 85.9, "阿尔卑斯": 55.0, "炫迈": 38.0, "春光": 157.2, "德芙": 568.8, "费列罗": 341.3, "诺梵": 1.2, "明治": 123.8, "PATCHI": 137.3, "牧果人": 31.1, "春江月": 79.1, "溜溜梅": 9.0, "卫龙": 428.9, "麻辣王子": 89.1, "乡乡嘴": 4.2, "西麦": 0.1, "欧扎克": 26.4, "稻小呆": 47.7, "穗格氏": 20.1, "秋田满满": 1282.8, "小鹿蓝蓝": 56.7, "宝宝馋了": 554.5, "爷爷的农场": 717.0, "妙可蓝多": 93.6, "kiri": 521.7, "奶酪博士": 14.0, "伊利": 1289.9, "百吉福": 60.5, "瑞慕": 32.0, "飞鹤": 20865.6, "乐芝牛": 44.0, "贝欧宝": 12.7, "口力": 6.7, "珍宝珠": 70.6};
-  const noAdSet = new Set(noAdBrands);
-  
+  var NO_AD = new Set(["欣善怡", "馋小德", "豁尔臣", "哈瑞宝", "辛尼里奇", "光庆", "旺家福", "海狸先生", "良品生活", "士力架", "笑辣辣", "金味", "达利园", "脆香米", "农亨", "老金磨方", "朵娜贝拉", "桃李", "缺牙齿", "厨籽康", "阴山优麦", "欧扎克", "盐津铺子", "有零有食", "解龄", "牧民人家", "大嘴君", "舌溜溜", "米多奇", "壹点壹滴", "彩虹糖", "好利来", "辣夫人", "懒吃侠", "胡婆婆", "绿箭", "捍味", "西域皇后", "仓鼠行动", "华味亨", "农香森", "原本记忆", "波力", "优姿曼", "馋小乖", "蒙都", "巧兮兮", "良品铺子", "湘食季", "悠哈", "泸溪河", "珍享", "老板仔", "檬冻", "知味观", "陈阿炳", "老街口", "茶颜清", "好时", "埃尔忒弥斯", "西域华腾", "尚恰", "西域美农", "安佳", "嘎嘎嘴", "宫季每日鲜", "润物说", "喜之郎", "爆湘", "嘉华", "茶颜悦色", "益美滋", "不二宝贝", "隆嘉盛", "典趣", "思乡山", "暴走工坊", "乐事", "市舶士", "喵在其中", "琪雷萨", "清净园", "沃隆", "福满棚", "湘扬农庄", "虎小将", "原果探鲜", "黄庄月饼", "飞旺", "慢严舒柠", "张笨仁", "泰尔", "全福德", "闻绮", "ZEK", "世壮", "妙飞", "三湘世家", "阿麦斯", "mizunun", "致每", "OMEK", "俏巴蜀", "食乐康", "乖不二", "齐云山", "藤桥牌", "面包加", "艾妍", "卫道", "泰城谷匠", "花田熊", "立兴", "南江桥", "二宝", "梅山古镇", "甜睡", "怡冠园", "小市一庄", "祖名", "丑八怪", "豆有味", "宏源", "kissport"]);
+  var AD_FLOW = {"三只松鼠": 61.8, "百草味": 3.2, "洽洽": 187.3, "旭东": 6.6, "三胖蛋": 107.4, "甘源": 128.6, "薛记炒货": 263.2, "王小卤": 107.4, "袋鼠先生": 261.1, "无穷": 0, "周黑鸭": 78.9, "寻香牧场": 72.4, "旺旺": 512.1, "甄磨坊": 37.1, "稻香村": 3.0, "比比赞": 6.2, "劲家庄": 105.2, "豪士": 6.0, "杨先生": 72.9, "徐福记": 248.2, "轩妈": 69.0, "脆升升": 439.0, "奥利奥": 1102.0, "江中食疗": 1201.3, "格力高": 0.2, "葡记": 76.2, "雀巢": 13671.4, "山姆会员店": 2747.4, "盼盼": 34.2, "茶口乐": 42.6, "大白兔": 50.3, "筷小喵": 85.9, "阿尔卑斯": 55.0, "炫迈": 38.0, "春光": 157.2, "德芙": 568.8, "费列罗": 341.3, "瑞士莲": 291.8, "诺梵": 1.2, "歌帝梵": 341.9, "明治": 123.8, "PATCHI": 137.3, "好想你": 0, "牧果人": 31.1, "春江月": 79.1, "溜溜梅": 9.0, "卫龙": 428.9, "麻辣王子": 89.1, "乡乡嘴": 4.2, "西麦": 0.1, "桂格": 1507.1, "卡乐b": 214.2, "稻小呆": 47.7, "穗格氏": 20.1, "美好时光": 119.3, "秋田满满": 1282.8, "小鹿蓝蓝": 56.7, "宝宝馋了": 554.5, "爷爷的农场": 717.0, "妙可蓝多": 93.6, "kiri": 521.7, "奶酪博士": 14.0, "伊利": 1289.9, "百吉福": 60.5, "瑞慕": 32.0, "飞鹤": 20865.6, "乐芝牛": 44.0, "贝欧宝": 12.7, "口力": 6.7, "珍宝珠": 70.6};
+
   function markBrands() {
     document.querySelectorAll('.bitem').forEach(function(item) {
-      const nameEl = item.querySelector('.bnm');
+      var nameEl = item.querySelector('.bnm');
       if (!nameEl) return;
-      const name = nameEl.textContent.trim();
-      if (noAdSet.has(name)) {
+      // 只取纯文字（去掉已有 badge）
+      var name = '';
+      nameEl.childNodes.forEach(function(n){ if(n.nodeType===3) name += n.textContent; });
+      name = name.trim();
+      if (!name) return;
+
+      // 清除旧 badge
+      item.querySelectorAll('.no-ad-badge,.ad-flow-badge').forEach(function(el){el.remove();});
+      item.classList.remove('no-ad');
+
+      if (NO_AD.has(name)) {
         item.classList.add('no-ad');
-        if (!item.querySelector('.no-ad-badge')) {
-          const badge = document.createElement('span');
-          badge.className = 'no-ad-badge';
-          badge.textContent = '未投放';
-          nameEl.after(badge);
-        }
-      } else if (adFlowMap[name] !== undefined) {
-        if (!item.querySelector('.ad-badge')) {
-          const badge = document.createElement('span');
-          badge.className = 'ad-badge';
-          const flow = adFlowMap[name];
-          badge.textContent = flow >= 100 ? flow.toFixed(0) + '万' : flow + '万';
+        var badge = document.createElement('span');
+        badge.className = 'no-ad-badge';
+        badge.textContent = '未投放';
+        badge.title = '该品牌在小红书2025年无投放记录';
+        nameEl.appendChild(badge);
+      } else if (AD_FLOW[name] !== undefined) {
+        var flow = AD_FLOW[name];
+        if (flow > 0) {
+          var badge = document.createElement('span');
+          badge.className = 'ad-flow-badge';
+          badge.textContent = (flow >= 100 ? Math.round(flow) : flow.toFixed(1)) + '万';
           badge.title = '2025年小红书广告流水';
-          // 在 gmv 后面插入
-          const gmvEl = item.querySelector('.bgmv');
-          if (gmvEl) gmvEl.after(badge);
+          nameEl.appendChild(badge);
         }
       }
     });
   }
-  
-  // 等待品牌切换后也执行
-  document.addEventListener('click', function(e) {
-    setTimeout(markBrands, 50);
-  });
-  
+
+  // 页面点击后重新标注（切换品类 tab 后）
+  document.addEventListener('click', function() { setTimeout(markBrands, 80); });
   // 初始执行
-  setTimeout(markBrands, 500);
-  setTimeout(markBrands, 1500);
+  setTimeout(markBrands, 600);
+  setTimeout(markBrands, 1800);
 })();
 </script>
+
 
 </body>
 </html>
