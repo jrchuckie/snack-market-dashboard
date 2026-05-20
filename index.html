@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>全网休闲零食市场全景 · Y25</title>
-<script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/echarts/5.4.3/echarts.min.js"></script>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{background:#0b0e18;color:#e2e8f0;font-family:-apple-system,'PingFang SC','Microsoft YaHei',sans-serif;min-height:100vh}
@@ -193,6 +193,7 @@ footer{padding:16px 48px;color:#334155;font-size:11px;border-top:1px solid #1e25
   <div class="ntab" onclick="switchTab('emerging',this)">🔥 Emerging赛道</div>
   <div class="ntab" onclick="switchTab('scoring',this)">🎯 赛道打分</div>
   <div class="ntab" onclick="switchTab('brands',this)">🏆 品牌榜单</div>
+  <div class="ntab" onclick="switchTab('summary',this)">🔍 赛道总结</div>
 </div>
 
 <!-- ===== 品类矩阵 ===== -->
@@ -539,6 +540,177 @@ footer{padding:16px 48px;color:#334155;font-size:11px;border-top:1px solid #1e25
   <div class="brand-cats" id="brand-cats"></div>
   <div class="bpanels" id="bpanels"></div>
 </div>
+<!-- ===== 赛道体系总结 ===== -->
+<div id="tab-summary" class="panel">
+  <div class="sec-title">🔍 赛道体系梳理 — 拆分与新增建议</div>
+
+  <div style="background:#0f172a;border:1px solid #1e2538;border-radius:10px;padding:14px 20px;margin-bottom:20px;font-size:12px;color:#94a3b8;line-height:1.7">
+    基于当前14品类框架，结合全网电商实测数据与小红书平台内容趋势，梳理哪些赛道需要<strong style="color:#f59e0b">进一步拆分为三级赛道</strong>，哪些是需要<strong style="color:#10b981">新增追踪的新兴方向</strong>。
+  </div>
+
+  <!-- ═══ 需拆分的赛道 ═══ -->
+  <div class="sec-title" style="margin-bottom:14px">✂️ 建议拆分：现有二级赛道 → 三级赛道</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:28px">
+
+    <!-- 卤味/肉类零食 -->
+    <div style="background:#111827;border:1px solid #1e3a5f;border-left:4px solid #3b82f6;border-radius:10px;padding:16px">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+        <div style="font-size:14px;font-weight:700;color:#e2e8f0">🥩 卤味/肉类零食 <span style="font-size:11px;color:#475569">¥219亿 +19.2%</span></div>
+        <span style="font-size:10px;background:rgba(59,130,246,.15);color:#60a5fa;padding:3px 8px;border-radius:10px">规模大·增速高·急需细分</span>
+      </div>
+      <div style="font-size:11px;color:#94a3b8;margin-bottom:10px">当前合并了「卤味熟食」+「肉干肉脯」两个截然不同的消费场景，竞争格局完全不同</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+        <div style="background:#0b0e18;border-radius:8px;padding:10px">
+          <div style="font-size:11px;font-weight:700;color:#60a5fa;margin-bottom:5px">卤味/熟食</div>
+          <div style="font-size:11px;color:#94a3b8;line-height:1.6">· 周黑鸭/绝味/王小卤<br>· 即食场景、佐餐<br>· 连锁 vs 线上新锐竞争<br>· YoY ~+19%</div>
+        </div>
+        <div style="background:#0b0e18;border-radius:8px;padding:10px">
+          <div style="font-size:11px;font-weight:700;color:#60a5fa;margin-bottom:5px">肉干/肉脯/肉棒</div>
+          <div style="font-size:11px;color:#94a3b8;line-height:1.6">· 三只松鼠/良品铺子<br>· 零食化、伴手礼场景<br>· 蛋白化升级方向<br>· YoY ~-17%（受渠道冲击）</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 饼干/膨化 -->
+    <div style="background:#111827;border:1px solid #1e3a5f;border-left:4px solid #3b82f6;border-radius:10px;padding:16px">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+        <div style="font-size:14px;font-weight:700;color:#e2e8f0">🍘 饼干/膨化 <span style="font-size:11px;color:#475569">¥75亿 重构中</span></div>
+        <span style="font-size:10px;background:rgba(59,130,246,.15);color:#60a5fa;padding:3px 8px;border-radius:10px">类目口径重组·需重拆</span>
+      </div>
+      <div style="font-size:11px;color:#94a3b8;margin-bottom:10px">类目重构导致YoY数据失真，内部包含差异极大的子品类</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+        <div style="background:#0b0e18;border-radius:8px;padding:10px">
+          <div style="font-size:11px;font-weight:700;color:#60a5fa;margin-bottom:5px">传统饼干</div>
+          <div style="font-size:11px;color:#94a3b8;line-height:1.6">· 奥利奥/乐之/趣多多<br>· 成熟品类，外资主导<br>· 健康化改良机会</div>
+        </div>
+        <div style="background:#0b0e18;border-radius:8px;padding:10px">
+          <div style="font-size:11px;font-weight:700;color:#60a5fa;margin-bottom:5px">膨化/薯片</div>
+          <div style="font-size:11px;color:#94a3b8;line-height:1.6">· 乐事/POPCORNERS<br>· 年轻人零食主流<br>· 网红口味迭代快</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 糕点/烘焙 -->
+    <div style="background:#111827;border:1px solid #1e3a5f;border-left:4px solid #3b82f6;border-radius:10px;padding:16px">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+        <div style="font-size:14px;font-weight:700;color:#e2e8f0">🎂 传统糕点/烘焙 <span style="font-size:11px;color:#475569">¥133亿 +15%</span></div>
+        <span style="font-size:10px;background:rgba(59,130,246,.15);color:#60a5fa;padding:3px 8px;border-radius:10px">中西差异大·增速分化</span>
+      </div>
+      <div style="font-size:11px;color:#94a3b8;margin-bottom:10px">中式糕点 vs 西式糕点增速差异显著，品牌生态完全不同</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+        <div style="background:#0b0e18;border-radius:8px;padding:10px">
+          <div style="font-size:11px;font-weight:700;color:#60a5fa;margin-bottom:5px">中式糕点</div>
+          <div style="font-size:11px;color:#94a3b8;line-height:1.6">· 稻香村/知味观/嘉华<br>· 传统节令礼赠<br>· 国潮化升级红利<br>· YoY ~-26%（线上转线下）</div>
+        </div>
+        <div style="background:#0b0e18;border-radius:8px;padding:10px">
+          <div style="font-size:11px;font-weight:700;color:#60a5fa;margin-bottom:5px">西式糕点/面包</div>
+          <div style="font-size:11px;color:#94a3b8;line-height:1.6">· 好利来/泸溪河/轩妈<br>· 新中式糕点网红化<br>· 精品烘焙社交属性强<br>· YoY ~+15%</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 谷物/麦片 -->
+    <div style="background:#111827;border:1px solid #78350f;border-left:4px solid #f59e0b;border-radius:10px;padding:16px">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+        <div style="font-size:14px;font-weight:700;color:#e2e8f0">🌾 谷物/麦片 <span style="font-size:11px;color:#475569">¥19亿 +15%</span></div>
+        <span style="font-size:10px;background:rgba(245,158,11,.15);color:#fbbf24;padding:3px 8px;border-radius:10px">Emerging·内部分化明显</span>
+      </div>
+      <div style="font-size:11px;color:#94a3b8;margin-bottom:10px">代餐麦片 vs 健康谷物棒是两个不同消费决策，应拆分追踪</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+        <div style="background:#0b0e18;border-radius:8px;padding:10px">
+          <div style="font-size:11px;font-weight:700;color:#fbbf24;margin-bottom:5px">即食燕麦/麦片</div>
+          <div style="font-size:11px;color:#94a3b8;line-height:1.6">· 西麦(¥9.4亿)/桂格(¥3.8亿)<br>· 代餐/早餐场景<br>· 规模大，竞争格局相对稳定</div>
+        </div>
+        <div style="background:#0b0e18;border-radius:8px;padding:10px">
+          <div style="font-size:11px;font-weight:700;color:#fbbf24;margin-bottom:5px">谷物棒/能量棒</div>
+          <div style="font-size:11px;color:#94a3b8;line-height:1.6">· 欧扎克/Buff X等新锐<br>· 健身随手吃场景<br>· 规模小但增速快，格局待定</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ═══ 需新增追踪的赛道 ═══ -->
+  <div class="sec-title" style="margin-bottom:14px">✨ 建议新增追踪：尚未纳入框架的三级赛道</div>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:28px">
+
+    <div style="background:#111827;border:1px solid rgba(16,185,129,.3);border-radius:10px;padding:14px">
+      <div style="font-size:13px;font-weight:700;color:#10b981;margin-bottom:6px">🥗 植物基零食</div>
+      <div style="font-size:11px;color:#94a3b8;line-height:1.65">豌豆蛋白/鹰嘴豆/藜麦类，对标海外 RXBar/Hippeas 在国内的孵化阶段。代表：Planta、豆本豆零食线。与蛋白棒赛道有部分重叠但消费心智不同</div>
+      <div style="margin-top:8px;font-size:10px;color:#475569">规模：初期 · 增速：高 · 格局：超碎片</div>
+    </div>
+
+    <div style="background:#111827;border:1px solid rgba(16,185,129,.3);border-radius:10px;padding:14px">
+      <div style="font-size:13px;font-weight:700;color:#10b981;margin-bottom:6px">🌙 睡眠/情绪零食</div>
+      <div style="font-size:11px;color:#94a3b8;line-height:1.65">GABA/褪黑素/L-茶氨酸零食化，从保健品迁移。功能软糖已覆盖部分，但独立"情绪经济"赛道值得单独追踪。代表：暴走工坊、甜睡、熊猫不走</div>
+      <div style="margin-top:8px;font-size:10px;color:#475569">规模：&lt;¥3亿 · 增速：+30%+ · 格局：待定</div>
+    </div>
+
+    <div style="background:#111827;border:1px solid rgba(16,185,129,.3);border-radius:10px;padding:14px">
+      <div style="font-size:13px;font-weight:700;color:#10b981;margin-bottom:6px">🍫 精品巧克力/Bean-to-Bar</div>
+      <div style="font-size:11px;color:#94a3b8;line-height:1.65">区别于德芙/好时大众巧克力，精品可可文化在国内孵化。代表：To'ak、Tcho、PATCHI。小红书种草属性极强，精品消费升级方向</div>
+      <div style="margin-top:8px;font-size:10px;color:#475569">规模：&lt;¥5亿 · 增速：+15%+ · XHS高势能</div>
+    </div>
+
+    <div style="background:#111827;border:1px solid rgba(16,185,129,.3);border-radius:10px;padding:14px">
+      <div style="font-size:13px;font-weight:700;color:#10b981;margin-bottom:6px">🫙 无添加/有机零食</div>
+      <div style="font-size:11px;color:#94a3b8;line-height:1.65">消费者成分焦虑驱动，跨越多个品类（饼干/果干/坚果）的消费心智标签。代表：田园主义、拾光好物、原萃。不是单独品类而是品类横切维度</div>
+      <div style="margin-top:8px;font-size:10px;color:#475569">横切标签型赛道 · XHS内容热度高</div>
+    </div>
+
+    <div style="background:#111827;border:1px solid rgba(16,185,129,.3);border-radius:10px;padding:14px">
+      <div style="font-size:13px;font-weight:700;color:#10b981;margin-bottom:6px">🎒 零食礼盒/伴手礼</div>
+      <div style="font-size:11px;color:#94a3b8;line-height:1.65">节令礼赠/生日/伴手礼场景的复合装，跨品类组合。三只松鼠/良品铺子/来伊份的核心GMV来源之一，但在品类框架里分散在各品类</div>
+      <div style="margin-top:8px;font-size:10px;color:#475569">场景化赛道 · GMV贡献大 · 待独立追踪</div>
+    </div>
+
+    <div style="background:#111827;border:1px solid rgba(16,185,129,.3);border-radius:10px;padding:14px">
+      <div style="font-size:13px;font-weight:700;color:#10b981;margin-bottom:6px">🌏 进口/国际零食</div>
+      <div style="font-size:11px;color:#94a3b8;line-height:1.65">日韩/东南亚/欧美进口零食，山姆/Costco/盒马代理渠道驱动。代表：韩国三养泡面、日本零食、东南亚网红零食。跨境电商+代购构成独特渠道格局</div>
+      <div style="margin-top:8px;font-size:10px;color:#475569">渠道特殊·GMV难测 · 小红书种草核心场景</div>
+    </div>
+
+  </div>
+
+  <!-- ═══ 三级赛道体系建议 ═══ -->
+  <div class="sec-title" style="margin-bottom:14px">📋 建议三级赛道体系（基于现有框架扩展）</div>
+  <div style="overflow-x:auto">
+    <table style="width:100%;border-collapse:collapse;font-size:12px">
+      <thead>
+        <tr style="background:#0b0e18;color:#475569;font-size:10px;text-transform:uppercase;letter-spacing:.4px">
+          <th style="padding:9px 14px;text-align:left;border-bottom:1px solid #1e2538;min-width:80px">三区</th>
+          <th style="padding:9px 14px;text-align:left;border-bottom:1px solid #1e2538;min-width:120px">二级赛道</th>
+          <th style="padding:9px 14px;text-align:left;border-bottom:1px solid #1e2538">建议三级拆分</th>
+          <th style="padding:9px 14px;text-align:center;border-bottom:1px solid #1e2538;min-width:80px">优先级</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="background:#0b0e18"><td colspan="4" style="padding:6px 14px;font-size:10px;font-weight:700;color:#64748b;text-transform:uppercase">⬜ 传统成熟区</td></tr>
+        <tr style="border-bottom:1px solid #0f1623"><td style="padding:9px 14px;color:#64748b">传统成熟</td><td style="padding:9px 14px;color:#e2e8f0;font-weight:600">🌰 坚果炒货</td><td style="padding:9px 14px;color:#94a3b8">坚果原味 / 调味坚果 / 混合坚果/每日坚果 / 炒货（瓜子花生）</td><td style="padding:9px 14px;text-align:center;color:#64748b">中</td></tr>
+        <tr style="border-bottom:1px solid #0f1623"><td style="padding:9px 14px;color:#64748b">传统成熟</td><td style="padding:9px 14px;color:#e2e8f0;font-weight:600">🍘 饼干/膨化</td><td style="padding:9px 14px;color:#94a3b8">传统饼干 / 薯片&amp;膨化 / 苏打饼干 / 威化&amp;夹心 <span style="color:#f59e0b">⭐急需拆</span></td><td style="padding:9px 14px;text-align:center;color:#f59e0b">高</td></tr>
+        <tr style="border-bottom:1px solid #0f1623"><td style="padding:9px 14px;color:#64748b">传统成熟</td><td style="padding:9px 14px;color:#e2e8f0;font-weight:600">🍑 蜜饯/枣梅/果干</td><td style="padding:9px 14px;color:#94a3b8">蜜饯话梅 / 果干(芒果/草莓等) / 大枣类 / 果冻</td><td style="padding:9px 14px;text-align:center;color:#64748b">低</td></tr>
+
+        <tr style="background:#0b0e18"><td colspan="4" style="padding:6px 14px;font-size:10px;font-weight:700;color:#3b82f6;text-transform:uppercase">🔵 成长竞争区</td></tr>
+        <tr style="border-bottom:1px solid #0f1623"><td style="padding:9px 14px;color:#3b82f6">成长竞争</td><td style="padding:9px 14px;color:#e2e8f0;font-weight:600">🥩 卤味/肉类零食</td><td style="padding:9px 14px;color:#94a3b8">卤味熟食（即食） / 肉干&amp;肉脯 / 肉棒&amp;肉肠 <span style="color:#f59e0b">⭐急需拆</span></td><td style="padding:9px 14px;text-align:center;color:#f59e0b">高</td></tr>
+        <tr style="border-bottom:1px solid #0f1623"><td style="padding:9px 14px;color:#3b82f6">成长竞争</td><td style="padding:9px 14px;color:#e2e8f0;font-weight:600">🎂 传统糕点/烘焙</td><td style="padding:9px 14px;color:#94a3b8">中式糕点（月饼/桃酥/蛋黄酥） / 西式面包&amp;蛋糕 / 新中式&amp;网红烘焙 <span style="color:#f59e0b">⭐急需拆</span></td><td style="padding:9px 14px;text-align:center;color:#f59e0b">高</td></tr>
+        <tr style="border-bottom:1px solid #0f1623"><td style="padding:9px 14px;color:#3b82f6">成长竞争</td><td style="padding:9px 14px;color:#e2e8f0;font-weight:600">🧀 奶酪零食</td><td style="padding:9px 14px;color:#94a3b8">儿童奶酪棒 / 成人奶酪零食（再制干酪）/ 奶酪涂抹类</td><td style="padding:9px 14px;text-align:center;color:#64748b">中</td></tr>
+        <tr style="border-bottom:1px solid #0f1623"><td style="padding:9px 14px;color:#3b82f6">成长竞争</td><td style="padding:9px 14px;color:#e2e8f0;font-weight:600">🍬 传统糖果/果冻</td><td style="padding:9px 14px;color:#94a3b8">硬糖&amp;软糖 / 棉花糖&amp;牛轧糖 / 果冻&amp;布丁 / 口香糖</td><td style="padding:9px 14px;text-align:center;color:#64748b">低</td></tr>
+        <tr style="border-bottom:1px solid #0f1623"><td style="padding:9px 14px;color:#3b82f6">成长竞争</td><td style="padding:9px 14px;color:#e2e8f0;font-weight:600">🍫 巧克力</td><td style="padding:9px 14px;color:#94a3b8">大众盒装巧克力 / 精品&amp;Bean-to-Bar / 黑巧功能化</td><td style="padding:9px 14px;text-align:center;color:#64748b">中</td></tr>
+        <tr style="border-bottom:1px solid #0f1623"><td style="padding:9px 14px;color:#3b82f6">成长竞争</td><td style="padding:9px 14px;color:#e2e8f0;font-weight:600">🫘 豆干/卤制蔬菜</td><td style="padding:9px 14px;color:#94a3b8">豆干&amp;豆腐干 / 卤藕&amp;卤笋 / 魔芋（已单独列）</td><td style="padding:9px 14px;text-align:center;color:#64748b">低</td></tr>
+
+        <tr style="background:#0b0e18"><td colspan="4" style="padding:6px 14px;font-size:10px;font-weight:700;color:#f59e0b;text-transform:uppercase">⭐ Emerging</td></tr>
+        <tr style="border-bottom:1px solid #0f1623"><td style="padding:9px 14px;color:#f59e0b">Emerging</td><td style="padding:9px 14px;color:#e2e8f0;font-weight:600">🌾 谷物/麦片</td><td style="padding:9px 14px;color:#94a3b8">即食燕麦&amp;麦片 / 谷物棒&amp;能量棒（可与蛋白棒合并追踪）<span style="color:#f59e0b">⭐急需拆</span></td><td style="padding:9px 14px;text-align:center;color:#f59e0b">高</td></tr>
+        <tr style="border-bottom:1px solid #0f1623"><td style="padding:9px 14px;color:#f59e0b">Emerging</td><td style="padding:9px 14px;color:#e2e8f0;font-weight:600">💊 功能软糖</td><td style="padding:9px 14px;color:#94a3b8">益生菌软糖 / 睡眠&amp;褪黑素软糖 / 美容胶原蛋白软糖 / 维生素软糖</td><td style="padding:9px 14px;text-align:center;color:#64748b">中</td></tr>
+        <tr style="border-bottom:1px solid #0f1623"><td style="padding:9px 14px;color:#f59e0b">Emerging</td><td style="padding:9px 14px;color:#e2e8f0;font-weight:600">🪷 魔芋零食</td><td style="padding:9px 14px;color:#94a3b8">魔芋爽&amp;素毛肚 / 魔芋肠 / 魔芋丝 — 目前卫龙独大，暂不急拆</td><td style="padding:9px 14px;text-align:center;color:#64748b">低</td></tr>
+        <tr style="border-bottom:1px solid #0f1623"><td style="padding:9px 14px;color:#f59e0b">Emerging</td><td style="padding:9px 14px;color:#e2e8f0;font-weight:600">💪 蛋白棒/能量棒</td><td style="padding:9px 14px;color:#94a3b8"><span style="color:#818cf8">新增赛道</span> — 与谷物棒有重叠，建议统一为「功能型固体零食」大类下的三级</td><td style="padding:9px 14px;text-align:center;color:#f59e0b">高</td></tr>
+        <tr style="border-bottom:1px solid #0f1623"><td style="padding:9px 14px;color:#f59e0b">Emerging</td><td style="padding:9px 14px;color:#e2e8f0;font-weight:600">🌙 睡眠/情绪零食</td><td style="padding:9px 14px;color:#94a3b8"><span style="color:#10b981">新增赛道</span> — 从功能软糖中独立，情绪经济驱动，独立追踪价值更高</td><td style="padding:9px 14px;text-align:center;color:#10b981">建议新增</td></tr>
+        <tr style="border-bottom:1px solid #0f1623"><td style="padding:9px 14px;color:#f59e0b">Emerging</td><td style="padding:9px 14px;color:#e2e8f0;font-weight:600">🥗 植物基零食</td><td style="padding:9px 14px;color:#94a3b8"><span style="color:#10b981">新增赛道</span> — 跨越坚果/蛋白棒/饼干的消费心智，建议单独追踪GMV&amp;品牌</td><td style="padding:9px 14px;text-align:center;color:#10b981">建议新增</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
 
 <!-- tab-top20 removed -->
 <div id="tab-top20" class="panel" style="display:none">
@@ -591,7 +763,13 @@ function switchTab(id, el) {
   el.classList.add('on');
   if(id==='scoring'){ setTimeout(initScoring,50); }
   if(id==='brands'){ setTimeout(()=>rebuildBrandCats(currentGroup),50); }
-  if(id==='charts'||id==='overview'){ chartsInited=false; setTimeout(initCharts,80); }
+  if(id==='charts'||id==='overview'){
+    chartsInited=false;
+    setTimeout(function(){
+      if(typeof echarts!=='undefined') initCharts();
+      else setTimeout(initCharts, 500);
+    }, 100);
+  }
 }
 
 
@@ -759,6 +937,15 @@ const BRAND_GROUPS = {
 
 let currentGroup = 'mature';
 
+function switchBrand(key, el) {
+  document.querySelectorAll('.bpanel').forEach(p => p.classList.remove('on'));
+  document.querySelectorAll('.bcat').forEach(t => t.classList.remove('on'));
+  const panel = document.getElementById('bp-' + key);
+  if (panel) panel.classList.add('on');
+  if (el) el.classList.add('on');
+  setTimeout(markBrands, 60);
+}
+
 function switchBrandGroup(group, el) {
   currentGroup = group;
   document.querySelectorAll('.bgtab').forEach(t=>t.classList.remove('on'));
@@ -855,59 +1042,8 @@ function switchT20(catKey, el) {
 })();
 
 // ===== 品牌榜单 =====
-(function(){
-  const catsEl = document.getElementById('brand-cats');
-  const panelsEl = document.getElementById('bpanels');
-  const allKeys = BRAND_GROUPS['mature'];
-
-  allKeys.forEach((key,idx) => {
-    const m = CAT_META[key];
-    // tab
-    const tab = document.createElement('div');
-    tab.className='bcat'+(idx===0?' on':'');
-    tab.textContent=m.icon+' '+m.name;
-    tab.onclick=function(){ switchBrand(key,this); };
-    catsEl.appendChild(tab);
-
-    // panel
-    const brands = BD[key]||[];
-    const maxGmv = brands[0]?.gmv||1;
-    const mid=Math.ceil(brands.length/2);
-    const panel=document.createElement('div');
-    panel.className='bpanel'+(idx===0?' on':'');
-    panel.id='bp-'+key;
-
-    function listHTML(slice, startRank) {
-      const hdr = startRank===1
-        ? `${m.icon} ${m.name} Top${brands.length} 品牌 · Y25 GMV`
-        : '数据说明：多写法已合并去重';
-      let items = slice.map((b,i)=>{
-        const rank=startRank+i;
-        const rkCls=rank<=3?'brk t3':'brk';
-        const pct=(b.gmv/maxGmv*100).toFixed(0);
-        return `<div class="bitem">
-          <div class="${rkCls}">${rank}</div>
-          <div class="bnm">${b.name}</div>
-          <div class="bbar"><div class="bbar-bg"><div class="bbar-fg" style="width:${pct}%"></div></div></div>
-          <div class="bgmv">¥${b.gmv}</div>
-        </div>`;
-      }).join('');
-      return `<div class="blist">
-        <div class="blist-hdr"><span>${hdr}</span><span>亿元</span></div>
-        ${items}
-      </div>`;
-    }
-    panel.innerHTML=listHTML(brands.slice(0,mid),1)+listHTML(brands.slice(mid),mid+1);
-    panelsEl.appendChild(panel);
-  });
-
-  function switchBrand(key, el) {
-    document.querySelectorAll('.bpanel').forEach(p=>p.classList.remove('on'));
-    document.querySelectorAll('.bcat').forEach(t=>t.classList.remove('on'));
-    document.getElementById('bp-'+key).classList.add('on');
-    el.classList.add('on');
-  }
-})();
+// switchBrand 已提升为全局函数（rebuildBrandCats 中使用）
+// 旧 IIFE 初始化已移至 DOMContentLoaded
 
 // ===== Main Top20 Tab =====
 (function(){
@@ -1027,10 +1163,21 @@ function initCharts(){
 document.addEventListener('DOMContentLoaded', function() {
   // 品牌榜单初始化（默认传统成熟区）
   rebuildBrandCats('mature');
-  // 图表：overview 是默认激活 tab，需要延迟等容器渲染完成
-  setTimeout(function() {
+  // 图表：等 ECharts CDN 加载完成 + 容器宽高就绪
+  function tryInitCharts(attempts) {
+    if (typeof echarts === 'undefined') {
+      if (attempts > 0) setTimeout(function(){ tryInitCharts(attempts-1); }, 300);
+      else console.warn('ECharts 加载失败');
+      return;
+    }
+    var el = document.getElementById('ch-pie');
+    if (!el || el.offsetWidth === 0) {
+      if (attempts > 0) setTimeout(function(){ tryInitCharts(attempts-1); }, 200);
+      return;
+    }
     initCharts();
-  }, 150);
+  }
+  setTimeout(function(){ tryInitCharts(15); }, 200);
 });
 
 
