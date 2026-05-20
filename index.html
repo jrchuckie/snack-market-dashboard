@@ -300,6 +300,11 @@ footer{padding:16px 48px;color:#334155;font-size:11px;border-top:1px solid #1e25
         <div class="cat-meta"><span class="cat-scale">¥0.7亿</span><span class="cat-yoy up">+15.0%</span></div>
         <span class="badge b-el">Proto·早期</span>
       </div>
+      <div class="cat-card" style="border:1px dashed rgba(99,102,241,.4);opacity:.75">
+        <div class="cat-name">💪 蛋白棒/能量棒</div>
+        <div class="cat-meta"><span class="cat-scale">¥3-5亿(估)</span><span class="cat-yoy up">+28%</span></div>
+        <span class="badge" style="background:rgba(99,102,241,.12);color:#818cf8;border:1px solid rgba(99,102,241,.3)">待研究·估算</span>
+      </div>
     </div>
   </div>
 
@@ -341,21 +346,11 @@ footer{padding:16px 48px;color:#334155;font-size:11px;border-top:1px solid #1e25
       </div>
     </div>
     <div style="margin-top:10px;padding-top:10px;border-top:1px solid #1e2538;font-size:11px;color:#475569">
-      ⚠️ 蛋白棒/能量棒为新增补充赛道：全网电商规模仍小（预估¥3-5亿），以 secondary research 为主要依据；数字为估算值，仅供参考方向
+      ⚠️ 赛道说明：① 奶酪零食（¥143亿, +9%）因规模已达百亿级，已归入"成长竞争区"，不在本页展示；② 蛋白棒/能量棒为补充赛道，以 secondary research 为主要依据，数字为估算值
     </div>
   </div>
 
   <div class="em-grid">
-    <div class="em-card hl">
-      <div class="em-hdr"><div class="em-name">🧀 奶酪零食</div><span class="em-badge b-el">快速成长</span></div>
-      <div class="em-stats">
-        <div class="em-s"><div class="em-sl">市场规模</div><div class="em-sv up">¥143亿</div></div>
-        <div class="em-s"><div class="em-sl">增速</div><div class="em-sv up">~+9%</div></div>
-        <div class="em-s"><div class="em-sl">CR1集中度</div><div class="em-sv hot">46.7%</div></div>
-      </div>
-      <div class="em-desc"><strong>妙可蓝多</strong>以¥6.69亿遥遥领先，奶酪博士(¥2.61亿)、Kiri(¥2.73亿)构成第二梯队。儿童奶酪棒→成人奶酪零食迁移，消费场景快速扩展。</div>
-      <div class="em-brands">TOP5：<span>妙可蓝多 · Kiri · 奶酪博士 · 伊利 · 西域皇后</span></div>
-    </div>
 
     <div class="em-card hl">
       <div class="em-hdr"><div class="em-name">🪷 魔芋零食</div><span class="em-badge b-eg">Emerging爆发</span></div>
@@ -596,7 +591,7 @@ function switchTab(id, el) {
   el.classList.add('on');
   if(id==='scoring'){ setTimeout(initScoring,50); }
   if(id==='brands'){ setTimeout(()=>rebuildBrandCats(currentGroup),50); }
-  if(id==='charts'||id==='overview') setTimeout(initCharts,80);
+  if(id==='charts'||id==='overview'){ chartsInited=false; setTimeout(initCharts,80); }
 }
 
 
@@ -1028,6 +1023,17 @@ function initCharts(){
 
 
 <script>
+// ===== 页面初始化 =====
+document.addEventListener('DOMContentLoaded', function() {
+  // 品牌榜单初始化（默认传统成熟区）
+  rebuildBrandCats('mature');
+  // 图表：overview 是默认激活 tab，需要延迟等容器渲染完成
+  setTimeout(function() {
+    initCharts();
+  }, 150);
+});
+
+
 (function() {
   var NO_AD = new Set(["欣善怡", "馋小德", "豁尔臣", "哈瑞宝", "辛尼里奇", "光庆", "旺家福", "海狸先生", "良品生活", "士力架", "笑辣辣", "金味", "达利园", "脆香米", "农亨", "老金磨方", "朵娜贝拉", "桃李", "缺牙齿", "厨籽康", "阴山优麦", "欧扎克", "盐津铺子", "有零有食", "解龄", "牧民人家", "大嘴君", "舌溜溜", "米多奇", "壹点壹滴", "彩虹糖", "好利来", "辣夫人", "懒吃侠", "胡婆婆", "绿箭", "捍味", "西域皇后", "仓鼠行动", "华味亨", "农香森", "原本记忆", "波力", "优姿曼", "馋小乖", "蒙都", "巧兮兮", "良品铺子", "湘食季", "悠哈", "泸溪河", "珍享", "老板仔", "檬冻", "知味观", "陈阿炳", "老街口", "茶颜清", "好时", "埃尔忒弥斯", "西域华腾", "尚恰", "西域美农", "安佳", "嘎嘎嘴", "宫季每日鲜", "润物说", "喜之郎", "爆湘", "嘉华", "茶颜悦色", "益美滋", "不二宝贝", "隆嘉盛", "典趣", "思乡山", "暴走工坊", "乐事", "市舶士", "喵在其中", "琪雷萨", "清净园", "沃隆", "福满棚", "湘扬农庄", "虎小将", "原果探鲜", "黄庄月饼", "飞旺", "慢严舒柠", "张笨仁", "泰尔", "全福德", "闻绮", "ZEK", "世壮", "妙飞", "三湘世家", "阿麦斯", "mizunun", "致每", "OMEK", "俏巴蜀", "食乐康", "乖不二", "齐云山", "藤桥牌", "面包加", "艾妍", "卫道", "泰城谷匠", "花田熊", "立兴", "南江桥", "二宝", "梅山古镇", "甜睡", "怡冠园", "小市一庄", "祖名", "丑八怪", "豆有味", "宏源", "kissport"]);
   var AD_FLOW = {"三只松鼠": 61.8, "百草味": 3.2, "洽洽": 187.3, "旭东": 6.6, "三胖蛋": 107.4, "甘源": 128.6, "薛记炒货": 263.2, "王小卤": 107.4, "袋鼠先生": 261.1, "无穷": 0, "周黑鸭": 78.9, "寻香牧场": 72.4, "旺旺": 512.1, "甄磨坊": 37.1, "稻香村": 3.0, "比比赞": 6.2, "劲家庄": 105.2, "豪士": 6.0, "杨先生": 72.9, "徐福记": 248.2, "轩妈": 69.0, "脆升升": 439.0, "奥利奥": 1102.0, "江中食疗": 1201.3, "格力高": 0.2, "葡记": 76.2, "雀巢": 13671.4, "山姆会员店": 2747.4, "盼盼": 34.2, "茶口乐": 42.6, "大白兔": 50.3, "筷小喵": 85.9, "阿尔卑斯": 55.0, "炫迈": 38.0, "春光": 157.2, "德芙": 568.8, "费列罗": 341.3, "瑞士莲": 291.8, "诺梵": 1.2, "歌帝梵": 341.9, "明治": 123.8, "PATCHI": 137.3, "好想你": 0, "牧果人": 31.1, "春江月": 79.1, "溜溜梅": 9.0, "卫龙": 428.9, "麻辣王子": 89.1, "乡乡嘴": 4.2, "西麦": 0.1, "桂格": 1507.1, "卡乐b": 214.2, "稻小呆": 47.7, "穗格氏": 20.1, "美好时光": 119.3, "秋田满满": 1282.8, "小鹿蓝蓝": 56.7, "宝宝馋了": 554.5, "爷爷的农场": 717.0, "妙可蓝多": 93.6, "kiri": 521.7, "奶酪博士": 14.0, "伊利": 1289.9, "百吉福": 60.5, "瑞慕": 32.0, "飞鹤": 20865.6, "乐芝牛": 44.0, "贝欧宝": 12.7, "口力": 6.7, "珍宝珠": 70.6};
