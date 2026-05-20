@@ -158,6 +158,12 @@ footer{padding:16px 48px;color:#334155;font-size:11px;border-top:1px solid #1e25
 .bgtab.growth.on{background:rgba(59,130,246,.15);color:#60a5fa;border-color:#3b82f6}
 .bgtab.emerging.on{background:rgba(245,158,11,.15);color:#fbbf24;border-color:#f59e0b}
 
+
+/* 打分筛选tab */
+.sztab, .sfilter{display:inline-block;padding:5px 12px;border-radius:16px;font-size:11px;font-weight:600;cursor:pointer;background:#1e2538;color:#64748b;border:1px solid #2d3748;transition:all .2s;user-select:none}
+.sztab.on{background:rgba(148,163,184,.15);color:#cbd5e1;border-color:#64748b}
+.sfilter.on{background:rgba(59,130,246,.15);color:#60a5fa;border-color:#3b82f6}
+
 </style>
 </head>
 <body>
@@ -196,141 +202,108 @@ footer{padding:16px 48px;color:#334155;font-size:11px;border-top:1px solid #1e25
   <div style="display:flex;gap:10px;margin-bottom:18px;flex-wrap:wrap">
     <div style="flex:1;min-width:180px;background:#111827;border:1px solid #2d3748;border-left:3px solid #475569;border-radius:8px;padding:12px 16px">
       <div style="font-size:10px;font-weight:700;color:#64748b;margin-bottom:6px;text-transform:uppercase;letter-spacing:.8px">⬜ 传统成熟区 定义</div>
-      <div style="font-size:11px;color:#94a3b8;line-height:1.65">GMV体量大（单品类 &gt;¥50亿）且YoY趋负或低增（&lt;+3%）；头部CR5格局固化，增量来自份额争夺而非市场扩容；对应MA×ATW框架 <em>Defend &amp; Harvest</em></div>
+      <div style="font-size:11px;color:#94a3b8;line-height:1.65">YoY为负（-7%~-47%）；GMV规模大（¥75~¥169亿）；格局固化，大品牌主导；头部CR5格局固化，增量来自份额争夺而非市场扩容；对应MA×ATW框架 <em>Defend &amp; Harvest</em></div>
     </div>
     <div style="flex:1;min-width:180px;background:#111827;border:1px solid #1e3a5f;border-left:3px solid #3b82f6;border-radius:8px;padding:12px 16px">
       <div style="font-size:10px;font-weight:700;color:#3b82f6;margin-bottom:6px;text-transform:uppercase;letter-spacing:.8px">🔵 成长竞争区 定义</div>
-      <div style="font-size:11px;color:#94a3b8;line-height:1.65">YoY跑赢全网大盘（+3%~+15%）；格局仍在演变，新品牌入局；渠道/产品创新带来增量，头部品牌尚无绝对壁垒；对应 <em>Double Down / Invest to Win</em></div>
+      <div style="font-size:11px;color:#94a3b8;line-height:1.65">YoY正增长（+4%~+20%）；规模从中到大（¥43~¥219亿）；格局演变中，奶酪/卤味等新势力崛起；格局仍在演变，新品牌入局；渠道/产品创新带来增量，头部品牌尚无绝对壁垒；对应 <em>Double Down / Invest to Win</em></div>
     </div>
     <div style="flex:1;min-width:180px;background:#111827;border:1px solid #78350f;border-left:3px solid #f59e0b;border-radius:8px;padding:12px 16px">
       <div style="font-size:10px;font-weight:700;color:#f59e0b;margin-bottom:6px;text-transform:uppercase;letter-spacing:.8px">⭐ Emerging &amp; Early Growth 定义</div>
-      <div style="font-size:11px;color:#94a3b8;line-height:1.65">规模相对小（&lt;¥30亿）但YoY高增（&gt;+10%）；消费者心智仍在培育；格局高度分散，先发优势明显；对应 <em>Invest to Win</em> 赛道</div>
+      <div style="font-size:11px;color:#94a3b8;line-height:1.65">规模小（¥0.7~¥19亿）但YoY高增（+10%~+70%）；谷物麦片/魔芋/功能软糖/海苔/冻干5个实测赛道；消费者心智仍在培育；格局高度分散，先发优势明显；对应 <em>Invest to Win</em> 赛道</div>
     </div>
   </div>
 
+  
   <div class="mzone">
-    <div class="mzone-title" style="color:#64748b">⬜ 传统成熟区 — 大盘承压，格局已定</div>
+    <div class="mzone-title" style="color:#64748b">⬜ 传统成熟区 — 大盘承压，格局已定（YoY<0，规模大）</div>
     <div class="cats-grid">
-      <div class="cat-card">
-        <div class="cat-name">膨化食品</div>
-        <div class="cat-meta"><span class="cat-scale">¥31亿（原口径）</span><span class="cat-yoy down">-47.5%*</span></div>
-        <span class="badge b-mature">类目重构</span>
-      </div>
-      <div class="cat-card">
-        <div class="cat-name">传统饼干</div>
-        <div class="cat-meta"><span class="cat-scale">¥43亿</span><span class="cat-yoy down">-21.9%</span></div>
-        <span class="badge b-mature">成熟停滞</span>
-      </div>
       <div class="cat-card">
         <div class="cat-name">坚果炒货</div>
         <div class="cat-meta"><span class="cat-scale">¥169亿</span><span class="cat-yoy down">-7.5%</span></div>
-        <span class="badge b-mature">白牌蚕食·龙头稳</span>
-      </div>
-      <div class="cat-card">
-        <div class="cat-name">传统糖果/果冻</div>
-        <div class="cat-meta"><span class="cat-scale">¥50亿</span><span class="cat-yoy up">+10.8%</span></div>
-        <span class="badge b-mature">徐福记/大白兔守位</span>
+        <span class="badge b-mature">成熟承压</span>
       </div>
       <div class="cat-card">
         <div class="cat-name">蜜饯/枣梅/果干</div>
         <div class="cat-meta"><span class="cat-scale">¥130亿</span><span class="cat-yoy down">-16.9%</span></div>
-        <span class="badge b-mature">传统口味承压</span>
+        <span class="badge b-mature">成熟下行</span>
+      </div>
+      <div class="cat-card">
+        <div class="cat-name">饼干/膨化</div>
+        <div class="cat-meta"><span class="cat-scale">¥75亿</span><span class="cat-yoy down">重构中</span></div>
+        <span class="badge b-mature">类目重构</span>
       </div>
     </div>
   </div>
 
   <div class="mzone">
-    <div class="mzone-title" style="color:#60a5fa">🔵 成长竞争区 — 跑赢大盘，格局未定</div>
+    <div class="mzone-title" style="color:#3b82f6">🔵 成长竞争区 — 跑赢大盘，格局未定（YoY +4%~+20%）</div>
     <div class="cats-grid">
       <div class="cat-card">
-        <div class="cat-name">卤味零食</div>
-        <div class="cat-meta"><span class="cat-scale">¥150亿</span><span class="cat-yoy up">+19.2%</span></div>
-        <span class="badge b-growth">王小卤/袋鼠先生崛起</span>
+        <div class="cat-name">卤味/肉类零食</div>
+        <div class="cat-meta"><span class="cat-scale">¥219亿</span><span class="cat-yoy up">+19.2%</span></div>
+        <span class="badge b-growth">高增成长</span>
       </div>
       <div class="cat-card">
-        <div class="cat-name">肉干肉脯</div>
-        <div class="cat-meta"><span class="cat-scale">¥69亿</span><span class="cat-yoy neu">重构中</span></div>
-        <span class="badge b-growth">品牌分散</span>
+        <div class="cat-name">传统糕点/烘焙</div>
+        <div class="cat-meta"><span class="cat-scale">¥133亿</span><span class="cat-yoy up">+15.0%</span></div>
+        <span class="badge b-growth">增长竞争</span>
+      </div>
+      <div class="cat-card">
+        <div class="cat-name">传统糖果/果冻</div>
+        <div class="cat-meta"><span class="cat-scale">¥50亿</span><span class="cat-yoy up">+10.8%</span></div>
+        <span class="badge b-growth">复苏成长</span>
       </div>
       <div class="cat-card">
         <div class="cat-name">巧克力</div>
         <div class="cat-meta"><span class="cat-scale">¥52亿</span><span class="cat-yoy up">+4.6%</span></div>
-        <span class="badge b-growth">精品升级·诺梵崛起</span>
-      </div>
-      <div class="cat-card">
-        <div class="cat-name">传统糕点/烘焙</div>
-        <div class="cat-meta"><span class="cat-scale">¥133亿</span><span class="cat-yoy up">+15%</span></div>
-        <span class="badge b-growth">新中式持续红利</span>
+        <span class="badge b-growth">稳健成长</span>
       </div>
       <div class="cat-card">
         <div class="cat-name">豆干/卤制蔬菜</div>
-        <div class="cat-meta"><span class="cat-scale">¥43亿</span><span class="cat-yoy up">+17%</span></div>
-        <span class="badge b-growth">卫龙/麻辣王子领跑</span>
+        <div class="cat-meta"><span class="cat-scale">¥43亿</span><span class="cat-yoy up">+17.0%</span></div>
+        <span class="badge b-growth">增长竞争</span>
       </div>
-    </div>
-  </div>
-
-  <div class="mzone" style="border-color:rgba(245,158,11,.3);background:linear-gradient(135deg,#14110a,#111827)">
-    <div class="mzone-title" style="color:#f59e0b">⭐ Emerging & Early Growth — 高增速·格局待定</div>
-    <div class="cats-grid">
-      <div class="cat-card" style="border-color:rgba(245,158,11,.2)">
+      <div class="cat-card">
         <div class="cat-name">奶酪零食</div>
-        <div class="cat-meta"><span class="cat-scale">¥143亿</span><span class="cat-yoy up">~+9%</span></div>
-        <span class="badge b-emerging">妙可蓝多主导·挑战者涌入</span>
+        <div class="cat-meta"><span class="cat-scale">¥143亿</span><span class="cat-yoy up">+9.0%</span></div>
+        <span class="badge b-growth">成长领跑</span>
       </div>
-      <div class="cat-card" style="border-color:rgba(245,158,11,.2)">
+    </div>
+  </div>
+
+  <div class="mzone">
+    <div class="mzone-title" style="color:#f59e0b">⭐ Emerging &amp; Early Growth — 高增速·格局待定（YoY>+10%，规模&lt;¥30亿）</div>
+    <div class="cats-grid">
+      <div class="cat-card">
         <div class="cat-name">魔芋零食</div>
-        <div class="cat-meta"><span class="cat-scale">¥6.1亿</span><span class="cat-yoy up">+70%+</span></div>
-        <span class="badge b-emerging">卫龙一家独大</span>
+        <div class="cat-meta"><span class="cat-scale">¥6.1亿</span><span class="cat-yoy up">+70.0%</span></div>
+        <span class="badge b-el">Emerging爆发</span>
       </div>
-      <div class="cat-card" style="border-color:rgba(245,158,11,.2)">
-        <div class="cat-name">谷物/麦片</div>
-        <div class="cat-meta"><span class="cat-scale">¥19亿</span><span class="cat-yoy up">+双位数</span></div>
-        <span class="badge b-emerging">西麦主导·桂格跟随</span>
-      </div>
-      <div class="cat-card" style="border-color:rgba(245,158,11,.2)">
-        <div class="cat-name">海苔/海味</div>
-        <div class="cat-meta"><span class="cat-scale">¥5.5亿+</span><span class="cat-yoy up">~+10%</span></div>
-        <span class="badge b-emerging">美好时光独占·儿童零食渗透</span>
-      </div>
-      <div class="cat-card" style="border-color:rgba(245,158,11,.2)">
+      <div class="cat-card">
         <div class="cat-name">功能软糖</div>
-        <div class="cat-meta"><span class="cat-scale">~¥5亿</span><span class="cat-yoy up">+20%+</span></div>
-        <span class="badge b-emerging">超碎片·优姿曼领跑</span>
+        <div class="cat-meta"><span class="cat-scale">¥5.0亿</span><span class="cat-yoy up">+20.0%</span></div>
+        <span class="badge b-el">Emerging</span>
       </div>
-      <div class="cat-card" style="border-color:rgba(168,85,247,.3);background:#0e0b15">
+      <div class="cat-card">
+        <div class="cat-name">谷物/麦片</div>
+        <div class="cat-meta"><span class="cat-scale">¥19亿</span><span class="cat-yoy up">+15.0%</span></div>
+        <span class="badge b-el">早期成长</span>
+      </div>
+      <div class="cat-card">
+        <div class="cat-name">海苔/海味</div>
+        <div class="cat-meta"><span class="cat-scale">¥5.5亿</span><span class="cat-yoy up">+10.0%</span></div>
+        <span class="badge b-el">Emerging</span>
+      </div>
+      <div class="cat-card">
         <div class="cat-name">冻干零食</div>
-        <div class="cat-meta"><span class="cat-scale">¥0.7亿</span><span class="cat-yoy hot">~+15%</span></div>
-        <span class="badge b-proto">Proto·有零有食占75%</span>
+        <div class="cat-meta"><span class="cat-scale">¥0.7亿</span><span class="cat-yoy up">+15.0%</span></div>
+        <span class="badge b-el">Proto·早期</span>
       </div>
     </div>
   </div>
 
-  <div class="insights-grid">
-    <div class="insight">
-      <div class="insight-icon">🎯</div>
-      <div class="insight-title">Emerging赛道共同规律</div>
-      <div class="insight-body">
-        ① <strong>CR5极低</strong>：格局未定，新品牌机会大<br>
-        ② <strong>功能卖点驱动</strong>：比传统零食更好种草<br>
-        ③ <strong>小红书是核心战场</strong>：内容→转化链路短<br>
-        ④ <strong>奶酪/魔芋规模最大</strong>，已进入快速成长期
-      </div>
-    </div>
-    <div class="insight">
-      <div class="insight-icon">⚠️</div>
-      <div class="insight-title">主力品类承压逻辑</div>
-      <div class="insight-body">
-        ① <strong>平台类目重构</strong>：膨化/饼干YOY失真，非真实下滑<br>
-        ② <strong>白牌侵蚀</strong>：临期/工厂直销大量涌入，压低CR5<br>
-        ③ <strong>量贩分流</strong>：零食很忙等线下渠道抢食<br>
-        ④ <strong>消费者迁移</strong>：从"随手吃"转向功能性、礼赠化
-      </div>
-    </div>
-  </div>
-</div>
-
-  <!-- ═══ 图表 ═══ -->
+<!-- ═══ 图表 ═══ -->
   <div class="sec-title" style="margin-top:28px">📈 数据图表</div>
 
   <div class="ch2">
@@ -456,84 +429,106 @@ footer{padding:16px 48px;color:#334155;font-size:11px;border-top:1px solid #1e25
 
 </div>
 
+
 <!-- ===== 赛道打分 ===== -->
 <div id="tab-scoring" class="panel">
-  <div class="sec-title">🎯 Emerging赛道 MA × ATW 战略打分</div>
+  <div class="sec-title">🎯 全赛道 MA × ATW 战略打分矩阵</div>
 
   <!-- 打分框架说明 -->
-  <div style="background:#0f172a;border:1px solid #1e2538;border-radius:10px;padding:14px 20px;margin-bottom:18px;font-size:12px;color:#94a3b8;line-height:1.8">
-    <div style="color:#e2e8f0;font-weight:700;margin-bottom:8px">评分体系（同快消战略框架 index-food-drilldown.html）</div>
+  <div style="background:#0f172a;border:1px solid #1e2538;border-radius:10px;padding:14px 20px;margin-bottom:16px;font-size:12px;color:#94a3b8;line-height:1.8">
+    <div style="color:#e2e8f0;font-weight:700;margin-bottom:8px">评分框架 · 同 FMCG 战略框架</div>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
       <div>
-        <div style="color:#60a5fa;font-weight:600;margin-bottom:4px">📈 MA · Market Attractiveness（满分5分）</div>
-        <div>· 营销预算规模 35% — 市场规模 × 销售费用率</div>
-        <div>· 市场增速 35% — YoY增速（电商数据实测）</div>
-        <div>· 头部客户可攻性 15% — CR100集中度（高=BD效率高）</div>
-        <div>· 新兴品牌活跃度 15% — 融资热度（IT桔子/36氪）</div>
+        <div style="color:#60a5fa;font-weight:600;margin-bottom:3px">📈 MA · Market Attractiveness（满5分）</div>
+        <div>· 预算规模 35% &nbsp;· 市场增速 35%</div>
+        <div>· 头部可攻性 15% &nbsp;· 新兴品牌活跃 15%</div>
       </div>
       <div>
-        <div style="color:#10b981;font-weight:600;margin-bottom:4px">🏆 ATW · Ability to Win（满分5分）</div>
-        <div>· 内容势能存量 20% — 小红书笔记曝光量</div>
-        <div>· 内容势能增速 15% — 曝光 YoY</div>
-        <div>· 决策链路重要性 25% — 消费者购前用XHS种草概率</div>
-        <div>· 解决方案成熟度 40% — 广告产品/打法/案例完备度</div>
+        <div style="color:#10b981;font-weight:600;margin-bottom:3px">🏆 ATW · Ability to Win（满5分）</div>
+        <div>· 内容势能存量 20% &nbsp;· 内容增速 15%</div>
+        <div>· 决策链路重要性 25% &nbsp;· 解决方案成熟度 40%</div>
       </div>
     </div>
   </div>
 
+  <!-- 分区筛选 -->
+  <div style="display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap;align-items:center">
+    <span style="font-size:11px;color:#475569;font-weight:600">按三区筛选：</span>
+    <div class="sztab on" onclick="setScoringZone('all',this)">📋 全部（14+1）</div>
+    <div class="sztab" onclick="setScoringZone('mature',this)" style="border-color:#64748b">⬜ 传统成熟区</div>
+    <div class="sztab" onclick="setScoringZone('growth',this)" style="border-color:#3b82f6">🔵 成长竞争区</div>
+    <div class="sztab" onclick="setScoringZone('emerging',this)" style="border-color:#f59e0b">⭐ Emerging</div>
+  </div>
+
   <!-- 打分表 -->
-  <div style="overflow-x:auto">
+  <div style="overflow-x:auto;margin-bottom:28px">
     <table style="width:100%;border-collapse:collapse;font-size:12px">
       <thead>
-        <tr style="background:#0b0e18;color:#475569;text-transform:uppercase;font-size:10px;letter-spacing:.5px">
-          <th style="padding:10px 12px;text-align:left;border-bottom:1px solid #1e2538;min-width:120px">赛道</th>
-          <th style="padding:10px 8px;text-align:center;border-bottom:1px solid #1e2538">预算规模<br><span style="color:#334155">35%</span></th>
-          <th style="padding:10px 8px;text-align:center;border-bottom:1px solid #1e2538">市场增速<br><span style="color:#334155">35%</span></th>
-          <th style="padding:10px 8px;text-align:center;border-bottom:1px solid #1e2538">头部可攻性<br><span style="color:#334155">15%</span></th>
-          <th style="padding:10px 8px;text-align:center;border-bottom:1px solid #1e2538">新兴活跃<br><span style="color:#334155">15%</span></th>
-          <th style="padding:10px 8px;text-align:center;border-bottom:1px solid #1e2538;color:#60a5fa">MA总分</th>
-          <th style="padding:10px 8px;text-align:center;border-bottom:1px solid #1e2538">内容存量<br><span style="color:#334155">20%</span></th>
-          <th style="padding:10px 8px;text-align:center;border-bottom:1px solid #1e2538">内容增速<br><span style="color:#334155">15%</span></th>
-          <th style="padding:10px 8px;text-align:center;border-bottom:1px solid #1e2538">决策链路<br><span style="color:#334155">25%</span></th>
-          <th style="padding:10px 8px;text-align:center;border-bottom:1px solid #1e2538">解决方案<br><span style="color:#334155">40%</span></th>
-          <th style="padding:10px 8px;text-align:center;border-bottom:1px solid #1e2538;color:#10b981">ATW总分</th>
-          <th style="padding:10px 8px;text-align:center;border-bottom:1px solid #1e2538">象限</th>
+        <tr style="background:#0b0e18;color:#475569;font-size:10px;text-transform:uppercase;letter-spacing:.4px">
+          <th style="padding:9px 12px;text-align:left;border-bottom:1px solid #1e2538;min-width:110px">赛道</th>
+          <th style="padding:9px 7px;text-align:center;border-bottom:1px solid #1e2538">预算<br>规模</th>
+          <th style="padding:9px 7px;text-align:center;border-bottom:1px solid #1e2538">市场<br>增速</th>
+          <th style="padding:9px 7px;text-align:center;border-bottom:1px solid #1e2538">头部<br>可攻</th>
+          <th style="padding:9px 7px;text-align:center;border-bottom:1px solid #1e2538">新兴<br>活跃</th>
+          <th style="padding:9px 7px;text-align:center;border-bottom:1px solid #1e2538;color:#60a5fa;min-width:50px">MA</th>
+          <th style="padding:9px 7px;text-align:center;border-bottom:1px solid #1e2538">内容<br>存量</th>
+          <th style="padding:9px 7px;text-align:center;border-bottom:1px solid #1e2538">内容<br>增速</th>
+          <th style="padding:9px 7px;text-align:center;border-bottom:1px solid #1e2538">决策<br>链路</th>
+          <th style="padding:9px 7px;text-align:center;border-bottom:1px solid #1e2538">解决<br>方案</th>
+          <th style="padding:9px 7px;text-align:center;border-bottom:1px solid #1e2538;color:#10b981;min-width:50px">ATW</th>
+          <th style="padding:9px 7px;text-align:center;border-bottom:1px solid #1e2538;min-width:120px">象限</th>
         </tr>
       </thead>
-      <tbody id="scoring-tbody">
-      </tbody>
+      <tbody id="scoring-tbody"></tbody>
     </table>
   </div>
 
   <!-- 2×2 矩阵 -->
-  <div style="margin-top:24px">
-    <div class="sec-title" style="margin-bottom:14px">2×2 战略矩阵 · Emerging赛道定位</div>
-    <div style="position:relative;background:#0b0e18;border:1px solid #1e2538;border-radius:12px;padding:24px;height:480px">
-      <!-- 轴标签 -->
-      <div style="position:absolute;left:50%;top:12px;transform:translateX(-50%);font-size:10px;color:#475569;text-transform:uppercase;letter-spacing:.8px">Market Attractiveness →</div>
-      <div style="position:absolute;left:12px;top:50%;transform:translateY(-50%) rotate(-90deg);font-size:10px;color:#475569;text-transform:uppercase;letter-spacing:.8px;white-space:nowrap">Ability to Win →</div>
-      <!-- 四象限背景 -->
-      <div style="position:absolute;left:60px;right:20px;top:30px;bottom:40px">
-        <div style="position:absolute;left:0;top:0;width:50%;height:50%;border-right:1px dashed #1e2538;border-bottom:1px dashed #1e2538;background:rgba(16,185,129,.03);border-radius:8px 0 0 0"></div>
-        <div style="position:absolute;right:0;top:0;width:50%;height:50%;border-left:1px dashed #1e2538;border-bottom:1px dashed #1e2538;background:rgba(59,130,246,.03);border-radius:0 8px 0 0"></div>
-        <div style="position:absolute;left:0;bottom:0;width:50%;height:50%;border-right:1px dashed #1e2538;border-top:1px dashed #1e2538;background:rgba(100,116,139,.03);border-radius:0 0 0 8px"></div>
-        <div style="position:absolute;right:0;bottom:0;width:50%;height:50%;border-left:1px dashed #1e2538;border-top:1px dashed #1e2538;background:rgba(245,158,11,.03);border-radius:0 0 8px 0"></div>
-        <!-- 象限标签 -->
-        <div style="position:absolute;left:4px;top:4px;font-size:9px;color:#10b981;font-weight:700">🔵 Defend &amp; Harvest</div>
-        <div style="position:absolute;right:4px;top:4px;font-size:9px;color:#3b82f6;font-weight:700">🟢 Double Down</div>
-        <div style="position:absolute;left:4px;bottom:4px;font-size:9px;color:#475569;font-weight:700">⚪ Deprioritize</div>
-        <div style="position:absolute;right:4px;bottom:4px;font-size:9px;color:#f59e0b;font-weight:700">🟡 Invest to Win</div>
-        <!-- 气泡由 JS 动态渲染 -->
-        <div id="matrix-bubbles" style="position:absolute;left:0;top:0;right:0;bottom:0"></div>
+  <div class="sec-title" style="margin-bottom:12px">2×2 战略矩阵 — 全赛道定位</div>
+
+  <!-- 商家筛选 -->
+  <div style="display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap;align-items:center">
+    <span style="font-size:11px;color:#475569;font-weight:600">按商家类型高亮：</span>
+    <div class="sfilter on" onclick="setScoringFilter('all',this)">🌐 全部赛道</div>
+    <div class="sfilter" onclick="setScoringFilter('advertiser',this)" style="border-color:#10b981">✅ 在投广告主</div>
+    <div class="sfilter" onclick="setScoringFilter('potential',this)" style="border-color:#f59e0b">⭐ 潜力未投品牌</div>
+    <div class="sfilter" onclick="setScoringFilter('new_brand',this)" style="border-color:#a78bfa">🚀 新消费新品牌</div>
+  </div>
+
+  <div style="position:relative;background:#0b0e18;border:1px solid #1e2538;border-radius:12px;padding:24px 20px 20px 50px;height:500px">
+    <!-- Y轴标签 -->
+    <div style="position:absolute;left:0;top:50%;transform:translateY(-50%) rotate(-90deg);font-size:10px;color:#475569;text-transform:uppercase;letter-spacing:.8px;white-space:nowrap">↑ ATW · Ability to Win</div>
+    <!-- X轴标签 -->
+    <div style="position:absolute;bottom:6px;left:50%;transform:translateX(-50%);font-size:10px;color:#475569;text-transform:uppercase;letter-spacing:.8px">Market Attractiveness →</div>
+    <!-- 分隔线 -->
+    <div style="position:absolute;left:50px;right:20px;top:30px;bottom:36px">
+      <!-- 四象限 -->
+      <div style="position:absolute;left:0;top:0;width:50%;height:50%;border-right:1px dashed #1e2538;border-bottom:1px dashed #1e2538;background:rgba(59,130,246,.04);display:flex;align-items:flex-start;justify-content:flex-start;padding:6px">
+        <span style="font-size:9px;color:#3b82f6;font-weight:700">🔵 Defend &amp; Harvest</span>
       </div>
-      <!-- 图例 -->
-      <div style="position:absolute;bottom:8px;right:20px;display:flex;gap:12px;font-size:10px;color:#475569">
-        <span style="display:flex;align-items:center;gap:4px"><span style="width:10px;height:10px;border-radius:50%;background:#10b981;display:inline-block"></span>已有实测数据</span>
-        <span style="display:flex;align-items:center;gap:4px"><span style="width:10px;height:10px;border-radius:50%;background:#818cf8;display:inline-block;opacity:.6"></span>Secondary Research估算</span>
+      <div style="position:absolute;right:0;top:0;width:50%;height:50%;border-left:1px dashed #1e2538;border-bottom:1px dashed #1e2538;background:rgba(16,185,129,.04);display:flex;align-items:flex-start;justify-content:flex-end;padding:6px">
+        <span style="font-size:9px;color:#10b981;font-weight:700">🟢 Double Down</span>
       </div>
+      <div style="position:absolute;left:0;bottom:0;width:50%;height:50%;border-right:1px dashed #1e2538;border-top:1px dashed #1e2538;background:rgba(100,116,139,.03);display:flex;align-items:flex-end;justify-content:flex-start;padding:6px">
+        <span style="font-size:9px;color:#475569;font-weight:700">⚪ Deprioritize</span>
+      </div>
+      <div style="position:absolute;right:0;bottom:0;width:50%;height:50%;border-left:1px dashed #1e2538;border-top:1px dashed #1e2538;background:rgba(245,158,11,.04);display:flex;align-items:flex-end;justify-content:flex-end;padding:6px">
+        <span style="font-size:9px;color:#f59e0b;font-weight:700">🟡 Invest to Win</span>
+      </div>
+      <!-- 气泡（动态渲染） -->
+      <div id="matrix-bubbles" style="position:absolute;left:0;top:0;right:0;bottom:0"></div>
     </div>
   </div>
+
+  <!-- 图例 -->
+  <div style="display:flex;gap:16px;margin-top:12px;flex-wrap:wrap;font-size:11px;color:#475569">
+    <span style="display:flex;align-items:center;gap:5px"><span style="width:12px;height:12px;border-radius:50%;background:#64748b;display:inline-block"></span>⬜ 传统成熟区（气泡大小=GMV规模）</span>
+    <span style="display:flex;align-items:center;gap:5px"><span style="width:12px;height:12px;border-radius:50%;background:#3b82f6;display:inline-block"></span>🔵 成长竞争区</span>
+    <span style="display:flex;align-items:center;gap:5px"><span style="width:12px;height:12px;border-radius:50%;background:#f59e0b;display:inline-block"></span>⭐ Emerging & Early Growth</span>
+    <span style="display:flex;align-items:center;gap:5px"><span style="width:12px;height:12px;border-radius:50%;background:#64748b;display:inline-block;opacity:.35;border:1px dashed #94a3b8"></span>估算数据</span>
+  </div>
 </div>
+
 
 
 <!-- ===== 品牌榜单 ===== -->
@@ -601,92 +596,170 @@ function switchTab(id, el) {
   el.classList.add('on');
   if(id==='scoring'){ setTimeout(initScoring,50); }
   if(id==='brands'){ setTimeout(()=>rebuildBrandCats(currentGroup),50); }
-  if(id==='charts') setTimeout(initCharts,80);
+  if(id==='charts'||id==='overview') setTimeout(initCharts,80);
 }
 
 
-// ===== 赛道打分数据 =====
-const SCORING = [
-  // {name, icon, gmv(亿Y25), yoy(%), ma1预算, ma2增速, ma3集中度, ma4融资, atw1存量, atw2增速, atw3链路, atw4解法, dataSource}
-  // MA总分 = ma1*0.35 + ma2*0.35 + ma3*0.15 + ma4*0.15
-  // ATW总分 = atw1*0.20 + atw2*0.15 + atw3*0.25 + atw4*0.40
-  {name:'奶酪零食', icon:'🧀', gmv:143, yoy:9,  ma1:3, ma2:3, ma3:3, ma4:4, atw1:3, atw2:3, atw3:4, atw4:3, src:'实测'},
-  {name:'魔芋零食', icon:'🪷', gmv:6.1, yoy:70, ma1:2, ma2:5, ma3:1, ma4:4, atw1:2, atw2:5, atw3:4, atw4:2, src:'实测'},
-  {name:'谷物/麦片', icon:'🌾', gmv:19,  yoy:15, ma1:3, ma2:4, ma3:3, ma4:3, atw1:3, atw2:3, atw3:3, atw4:3, src:'实测'},
-  {name:'海苔/海味', icon:'🌿', gmv:5.5, yoy:10, ma1:2, ma2:3, ma3:3, ma4:2, atw1:2, atw2:3, atw3:3, atw4:2, src:'实测'},
-  {name:'功能软糖',  icon:'💊', gmv:5.0, yoy:20, ma1:2, ma2:4, ma3:1, ma4:5, atw1:2, atw2:4, atw3:4, atw4:2, src:'实测'},
-  {name:'冻干零食',  icon:'❄️', gmv:0.7, yoy:15, ma1:1, ma2:3, ma3:1, ma4:3, atw1:1, atw2:3, atw3:3, atw4:1, src:'实测'},
-  {name:'蛋白棒/能量棒', icon:'💪', gmv:4.0, yoy:28, ma1:2, ma2:5, ma3:1, ma4:4, atw1:2, atw2:4, atw3:3, atw4:1, src:'估算'},
+
+// ===== 全品类打分数据（14品类 + 蛋白棒）=====
+// zone: mature / growth / emerging
+// MA = 预算规模×0.35 + 市场增速×0.35 + 头部可攻性×0.15 + 新兴活跃×0.15
+// ATW = 内容存量×0.20 + 内容增速×0.15 + 决策链路×0.25 + 解决方案成熟×0.40
+// 商家类型: advertiser(在投广告主), potential(潜力未投), new_brand(新消费新品牌)
+const ALL_CAT_SCORES = [
+  // 传统成熟区
+  {key:'nuts',   name:'坚果炒货', icon:'🌰', zone:'mature', gmv:169, yoy:-7.5,
+   ma:[4,1,4,2], atw:[4,2,4,5], advertiser:'有', potential:'高', new_brand:'低'},
+  {key:'dried',  name:'蜜饯/枣梅/果干', icon:'🍑', zone:'mature', gmv:130, yoy:-16.9,
+   ma:[3,1,3,2], atw:[3,2,3,4], advertiser:'有', potential:'中', new_brand:'低'},
+  {key:'biscuit',name:'饼干/膨化', icon:'🍘', zone:'mature', gmv:75, yoy:null,
+   ma:[3,1,3,1], atw:[3,2,3,4], advertiser:'有', potential:'中', new_brand:'低'},
+  // 成长竞争区
+  {key:'meat',   name:'卤味/肉类零食', icon:'🥩', zone:'growth', gmv:219, yoy:19.2,
+   ma:[5,4,3,3], atw:[4,3,4,4], advertiser:'有', potential:'高', new_brand:'中'},
+  {key:'cake',   name:'传统糕点/烘焙', icon:'🎂', zone:'growth', gmv:133, yoy:15.0,
+   ma:[4,3,3,3], atw:[4,3,4,4], advertiser:'有', potential:'高', new_brand:'中'},
+  {key:'cheese', name:'奶酪零食', icon:'🧀', zone:'growth', gmv:143, yoy:9.0,
+   ma:[4,3,3,4], atw:[3,3,4,3], advertiser:'中', potential:'高', new_brand:'高'},
+  {key:'candy',  name:'传统糖果/果冻', icon:'🍬', zone:'growth', gmv:50, yoy:10.8,
+   ma:[3,3,3,2], atw:[3,2,3,4], advertiser:'有', potential:'中', new_brand:'中'},
+  {key:'choco',  name:'巧克力', icon:'🍫', zone:'growth', gmv:52, yoy:4.6,
+   ma:[3,2,3,2], atw:[3,2,4,4], advertiser:'有', potential:'中', new_brand:'低'},
+  {key:'tofu',   name:'豆干/卤制蔬菜', icon:'🫘', zone:'growth', gmv:43, yoy:17.0,
+   ma:[3,3,3,3], atw:[3,3,3,3], advertiser:'中', potential:'高', new_brand:'中'},
+  // Emerging
+  {key:'konjac',    name:'魔芋零食', icon:'🪷', zone:'emerging', gmv:6.1, yoy:70.0,
+   ma:[2,5,1,4], atw:[2,5,4,2], advertiser:'低', potential:'高', new_brand:'高'},
+  {key:'funccandy', name:'功能软糖', icon:'💊', zone:'emerging', gmv:5.0, yoy:20.0,
+   ma:[2,4,1,5], atw:[2,4,4,2], advertiser:'低', potential:'高', new_brand:'高'},
+  {key:'grain',     name:'谷物/麦片', icon:'🌾', zone:'emerging', gmv:19,  yoy:15.0,
+   ma:[3,4,3,3], atw:[3,3,3,3], advertiser:'中', potential:'高', new_brand:'高'},
+  {key:'seaweed',   name:'海苔/海味', icon:'🌿', zone:'emerging', gmv:5.5, yoy:10.0,
+   ma:[2,3,3,2], atw:[2,3,3,2], advertiser:'低', potential:'中', new_brand:'中'},
+  {key:'freeze',    name:'冻干零食', icon:'❄️', zone:'emerging', gmv:0.7, yoy:15.0,
+   ma:[1,3,1,3], atw:[1,3,3,1], advertiser:'低', potential:'低', new_brand:'中'},
+  {key:'proteinbar',name:'蛋白棒/能量棒', icon:'💪', zone:'emerging', gmv:4.0, yoy:28.0,
+   ma:[2,5,1,4], atw:[2,4,3,1], advertiser:'低', potential:'中', new_brand:'高', estimated:true},
 ];
 
-function calcMA(d){ return d.ma1*0.35 + d.ma2*0.35 + d.ma3*0.15 + d.ma4*0.15; }
-function calcATW(d){ return d.atw1*0.20 + d.atw2*0.15 + d.atw3*0.25 + d.atw4*0.40; }
+function calcMA(d){ const [a,b,c,e]=d.ma; return a*0.35+b*0.35+c*0.15+e*0.15; }
+function calcATW(d){ const [a,b,c,e]=d.atw; return a*0.20+b*0.15+c*0.25+e*0.40; }
 function getQuadrant(ma, atw){
-  if(ma>=3 && atw>=3) return {label:'Double Down', color:'#10b981', symbol:'🟢'};
-  if(ma>=3 && atw<3)  return {label:'Invest to Win', color:'#f59e0b', symbol:'🟡'};
-  if(ma<3  && atw>=3) return {label:'Defend & Harvest', color:'#3b82f6', symbol:'🔵'};
-  return {label:'Deprioritize', color:'#475569', symbol:'⚪'};
+  if(ma>=2.75 && atw>=2.75) return {label:'Double Down ✅',  color:'#10b981', bg:'rgba(16,185,129,.1)'};
+  if(ma>=2.75 && atw<2.75)  return {label:'Invest to Win 🟡', color:'#f59e0b', bg:'rgba(245,158,11,.1)'};
+  if(ma<2.75  && atw>=2.75) return {label:'Defend & Harvest 🔵', color:'#3b82f6', bg:'rgba(59,130,246,.1)'};
+  return {label:'Deprioritize ⚪', color:'#475569', bg:'rgba(100,116,139,.1)'};
 }
+const ZONE_COLORS = {mature:'#64748b', growth:'#3b82f6', emerging:'#f59e0b'};
+const ZONE_LABELS = {mature:'传统成熟区', growth:'成长竞争区', emerging:'Emerging'};
+
+let scoringFilter = 'all'; // all / advertiser / potential / new_brand
+let scoringZone = 'all';   // all / mature / growth / emerging
 
 function initScoring(){
+  renderScoringTable();
+  renderMatrix();
+}
+
+function renderScoringTable(){
   const tbody = document.getElementById('scoring-tbody');
   if(!tbody) return;
-  SCORING.forEach(d => {
-    const ma = calcMA(d);
-    const atw = calcATW(d);
-    const q = getQuadrant(ma, atw);
-    const isEst = d.src==='估算';
-    const tr = document.createElement('tr');
-    tr.style.cssText = 'border-bottom:1px solid #0f1623;'+(isEst?'opacity:.8':'');
-    tr.innerHTML = `
-      <td style="padding:10px 12px;font-weight:600;color:#e2e8f0">${d.icon} ${d.name}${isEst?'<span style="font-size:9px;color:#475569;margin-left:4px">估算</span>':''}</td>
-      <td style="padding:10px 8px;text-align:center;color:#94a3b8">${d.ma1}</td>
-      <td style="padding:10px 8px;text-align:center;color:#94a3b8">${d.ma2}</td>
-      <td style="padding:10px 8px;text-align:center;color:#94a3b8">${d.ma3}</td>
-      <td style="padding:10px 8px;text-align:center;color:#94a3b8">${d.ma4}</td>
-      <td style="padding:10px 8px;text-align:center;font-weight:700;color:#60a5fa">${ma.toFixed(2)}</td>
-      <td style="padding:10px 8px;text-align:center;color:#94a3b8">${d.atw1}</td>
-      <td style="padding:10px 8px;text-align:center;color:#94a3b8">${d.atw2}</td>
-      <td style="padding:10px 8px;text-align:center;color:#94a3b8">${d.atw3}</td>
-      <td style="padding:10px 8px;text-align:center;color:#94a3b8">${d.atw4}</td>
-      <td style="padding:10px 8px;text-align:center;font-weight:700;color:#10b981">${atw.toFixed(2)}</td>
-      <td style="padding:10px 8px;text-align:center;font-size:11px;font-weight:700;color:${q.color}">${q.symbol} ${q.label}</td>
-    `;
-    tbody.appendChild(tr);
-  });
+  tbody.innerHTML='';
 
-  // 2×2 矩阵气泡
+  let data = ALL_CAT_SCORES;
+  if(scoringZone!=='all') data = data.filter(d=>d.zone===scoringZone);
+
+  // 按zone分组展示
+  const zones = scoringZone==='all' ? ['mature','growth','emerging'] : [scoringZone];
+  zones.forEach(zone => {
+    const items = data.filter(d=>d.zone===zone);
+    if(!items.length) return;
+    // 分组标题行
+    const hdr = document.createElement('tr');
+    hdr.innerHTML=`<td colspan="12" style="padding:8px 12px;background:#0b0e18;color:${ZONE_COLORS[zone]};font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px">${ZONE_LABELS[zone]}</td>`;
+    tbody.appendChild(hdr);
+
+    items.forEach(d => {
+      const ma = calcMA(d);
+      const atw = calcATW(d);
+      const q = getQuadrant(ma, atw);
+      const est = d.estimated ? '<span style="font-size:9px;color:#475569;margin-left:4px">估算</span>' : '';
+      const yoyStr = d.yoy===null?'重构中':(d.yoy>0?`+${d.yoy}%`:`${d.yoy}%`);
+      const tr = document.createElement('tr');
+      tr.style.cssText='border-bottom:1px solid #0f1623';
+      tr.innerHTML=`
+        <td style="padding:9px 12px;font-weight:600;color:#e2e8f0;font-size:13px">${d.icon} ${d.name}${est}</td>
+        <td style="padding:9px 8px;text-align:center;font-size:11px;color:#94a3b8">${d.ma[0]}</td>
+        <td style="padding:9px 8px;text-align:center;font-size:11px;color:#94a3b8">${d.ma[1]}</td>
+        <td style="padding:9px 8px;text-align:center;font-size:11px;color:#94a3b8">${d.ma[2]}</td>
+        <td style="padding:9px 8px;text-align:center;font-size:11px;color:#94a3b8">${d.ma[3]}</td>
+        <td style="padding:9px 8px;text-align:center;font-weight:700;color:#60a5fa">${ma.toFixed(2)}</td>
+        <td style="padding:9px 8px;text-align:center;font-size:11px;color:#94a3b8">${d.atw[0]}</td>
+        <td style="padding:9px 8px;text-align:center;font-size:11px;color:#94a3b8">${d.atw[1]}</td>
+        <td style="padding:9px 8px;text-align:center;font-size:11px;color:#94a3b8">${d.atw[2]}</td>
+        <td style="padding:9px 8px;text-align:center;font-size:11px;color:#94a3b8">${d.atw[3]}</td>
+        <td style="padding:9px 8px;text-align:center;font-weight:700;color:#10b981">${atw.toFixed(2)}</td>
+        <td style="padding:9px 8px;text-align:center;font-size:10px;font-weight:600;color:${q.color}">${q.label}</td>
+      `;
+      tbody.appendChild(tr);
+    });
+  });
+}
+
+function renderMatrix(){
   const container = document.getElementById('matrix-bubbles');
   if(!container) return;
-  const W = container.offsetWidth||400, H = container.offsetHeight||400;
-  SCORING.forEach(d => {
+  container.innerHTML='';
+
+  let data = ALL_CAT_SCORES;
+  // 商家筛选：筛选该类型有机会的赛道
+  if(scoringFilter==='advertiser') data = data.filter(d=>d.advertiser!=='低');
+  else if(scoringFilter==='potential') data = data.filter(d=>d.potential==='高');
+  else if(scoringFilter==='new_brand') data = data.filter(d=>d.new_brand!=='低');
+
+  data.forEach(d => {
     const ma = calcMA(d);
     const atw = calcATW(d);
     const q = getQuadrant(ma, atw);
-    const isEst = d.src==='估算';
-    // x: MA 0-5 → 0-100%，y: ATW 5-0（倒置）
-    const xPct = (ma/5)*100;
-    const yPct = ((5-atw)/5)*100;
-    const radius = Math.max(16, Math.min(36, Math.sqrt(d.gmv)*6));
+    const zoneColor = ZONE_COLORS[d.zone];
+    const est = d.estimated;
+    // x: MA 0-5 → 0-96%，y: ATW 5-0（倒置，加留白）
+    const xPct = (ma/5)*92 + 2;
+    const yPct = ((5-atw)/5)*88 + 4;
+    const radius = Math.max(18, Math.min(44, Math.sqrt((d.gmv||1))*5.5));
     const bubble = document.createElement('div');
-    bubble.style.cssText = `position:absolute;left:${xPct}%;top:${yPct}%;transform:translate(-50%,-50%);width:${radius*2}px;height:${radius*2}px;border-radius:50%;background:${q.color};opacity:${isEst?0.5:0.75};display:flex;align-items:center;justify-content:center;cursor:default;transition:opacity .2s;border:1px solid ${q.color}`;
-    bubble.title = `${d.icon} ${d.name}
-MA=${ma.toFixed(2)} ATW=${atw.toFixed(2)}
-GMV≈¥${d.gmv}亿 YoY+${d.yoy}%
-${q.symbol} ${q.label}`;
-    bubble.innerHTML = `<span style="font-size:10px;font-weight:700;color:#fff;text-align:center;white-space:nowrap;padding:0 4px;overflow:hidden;text-overflow:ellipsis">${d.name.length>4?d.name.slice(0,4):d.name}</span>`;
-    bubble.onmouseenter = function(){ this.style.opacity='1'; this.style.zIndex='10'; };
-    bubble.onmouseleave = function(){ this.style.opacity=isEst?'0.5':'0.75'; this.style.zIndex=''; };
+    bubble.style.cssText = `position:absolute;left:${xPct}%;top:${yPct}%;transform:translate(-50%,-50%);width:${radius*2}px;height:${radius*2}px;border-radius:50%;background:${zoneColor};opacity:${est?0.45:0.75};display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:default;transition:all .2s;border:2px solid ${zoneColor};box-shadow:0 0 12px ${zoneColor}44;z-index:1`;
+    bubble.title = `${d.icon} ${d.name}\nMA=${ma.toFixed(2)}  ATW=${atw.toFixed(2)}\nGMV≈¥${d.gmv}亿  YoY${d.yoy===null?'重构中':(d.yoy>0?'+':'')+d.yoy+'%'}\n象限: ${q.label}\n商家机会: 在投${d.advertiser} / 潜力${d.potential} / 新品牌${d.new_brand}`;
+    bubble.innerHTML = `<span style="font-size:${radius>24?'13':'10'}px;font-weight:700;color:#fff;text-align:center;line-height:1.2;padding:0 3px;max-width:${radius*2-8}px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${d.name.length>4?d.name.slice(0,4)+'…':d.name}</span>`;
+    bubble.onmouseenter = function(){
+      this.style.opacity='1'; this.style.transform='translate(-50%,-50%) scale(1.15)'; this.style.zIndex='20';
+    };
+    bubble.onmouseleave = function(){
+      this.style.opacity=est?'0.45':'0.75'; this.style.transform='translate(-50%,-50%) scale(1)'; this.style.zIndex='1';
+    };
     container.appendChild(bubble);
   });
+}
+
+function setScoringFilter(f, el){
+  scoringFilter = f;
+  document.querySelectorAll('.sfilter').forEach(t=>t.classList.remove('on'));
+  if(el) el.classList.add('on');
+  renderMatrix();
+}
+function setScoringZone(z, el){
+  scoringZone = z;
+  document.querySelectorAll('.sztab').forEach(t=>t.classList.remove('on'));
+  if(el) el.classList.add('on');
+  renderScoringTable();
 }
 
 // ===== 品牌榜单三区分组 =====
 // 品类分组映射
 const BRAND_GROUPS = {
-  mature: ['biscuit','candy','nuts','dried'],     // 传统成熟区
-  growth: ['meat','choco','cake','tofu'],           // 成长竞争区
-  emerging: ['grain','seaweed','freeze','cheese','konjac','funccandy'], // Emerging
+  mature:   ['nuts','dried','biscuit'],                          // 传统成熟区（YoY<0）
+  growth:   ['meat','cake','cheese','candy','choco','tofu'],     // 成长竞争区（YoY +4%~+20%）
+  emerging: ['konjac','funccandy','grain','seaweed','freeze'],   // Emerging（规模<¥30亿，高增速）
 };
 
 let currentGroup = 'mature';
