@@ -794,11 +794,7 @@ function switchTab(id, el) {
   if(id==='scoring'){ setTimeout(initScoring,50); }
   if(id==='brands'){ setTimeout(()=>rebuildBrandCats(currentGroup),50); }
   if(id==='charts'||id==='overview'){
-    chartsInited=false;
-    setTimeout(function(){
-      if(typeof echarts!=='undefined') initCharts();
-      else setTimeout(initCharts, 500);
-    }, 100);
+    safeInitCharts();
   }
 }
 
@@ -1190,14 +1186,27 @@ function initCharts(){
 
 <script>
 // ===== 页面初始化 =====
-document.addEventListener('DOMContentLoaded', function() {
-  rebuildBrandCats('mature');
-  // ECharts 已内联，直接延迟触发（等布局 paint 完成）
-  setTimeout(initCharts, 300);
-});
-window.addEventListener('load', function() {
-  // 二次保险：页面完全加载后再试一次
-  if (!chartsInited) setTimeout(initCharts, 100);
+// ECharts 已内联，无需等待 CDN；但需要等 DOM paint 完成后才能获取容器宽高
+// 使用 requestAnimationFrame 确保布局已完成
+function safeInitCharts() {
+  chartsInited = false;  // 重置，允许重新初始化
+  requestAnimationFrame(function() {
+    requestAnimationFrame(function() {
+      initCharts();
+    });
+  });
+}
+
+// 初始化品牌榜单
+rebuildBrandCats('mature');
+
+// 初始化图表（双 rAF 确保容器有宽高）
+safeInitCharts();
+
+// 切 Tab 回 overview 时也用 safeInitCharts
+// （已在 switchTab 里处理，这里补充一层保险）
+document.addEventListener('visibilitychange', function() {
+  if (!document.hidden && !chartsInited) safeInitCharts();
 });
 
 
