@@ -1110,15 +1110,24 @@ function renderTop20Table(catKey, containerId) {
     const rank = i+1;
     const rkCls = rank<=3?'rk t3':'rk';
     const pct = (b.gmv/maxGmv*100).toFixed(0);
+    // YoY列
+    let yoyCell = '<span style="color:#475569;font-size:10px">—</span>';
+    if (b.yoy !== undefined && b.yoy !== null) {
+      const yoyVal = b.yoy;
+      const color = yoyVal > 0 ? '#10b981' : yoyVal < 0 ? '#f87171' : '#94a3b8';
+      const sign = yoyVal > 0 ? '+' : '';
+      yoyCell = `<span style="color:${color};font-size:11px;font-weight:600">${sign}${yoyVal.toFixed(1)}%</span>`;
+    }
     return `<tr>
       <td class="${rkCls}">${rank}</td>
       <td>${b.name}</td>
       <td class="gmv-val">¥${b.gmv}亿</td>
+      <td style="text-align:center;padding:6px 8px">${yoyCell}</td>
       <td class="bar-cell"><div class="bar-wrap"><div class="bar-fill" style="width:${pct}%"></div></div></td>
     </tr>`;
   }).join('');
   return `<table class="top20-tbl">
-    <thead><tr><th>#</th><th>品牌</th><th>GMV</th><th class="bar-cell">占比</th></tr></thead>
+    <thead><tr><th>#</th><th>品牌</th><th>GMV</th><th style="text-align:center">YoY</th><th class="bar-cell">占比</th></tr></thead>
     <tbody>${rows}</tbody>
   </table>`;
 }
