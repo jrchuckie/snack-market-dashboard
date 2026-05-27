@@ -215,7 +215,7 @@ footer{padding:16px 48px;color:#334155;font-size:11px;border-top:1px solid #1e25
 <script>
 // 早期定义switchTab，确保Tab点击在任何script加载状态下都能工作
 function switchTab(id, el) {
-  document.querySelectorAll('.npanel').forEach(p => p.classList.remove('on'));
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('on'));
   document.querySelectorAll('.ntab').forEach(t => t.classList.remove('on'));
   const panel = document.getElementById('tab-' + id);
   if (panel) panel.classList.add('on');
