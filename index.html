@@ -803,13 +803,14 @@ footer{padding:16px 48px;color:#334155;font-size:11px;border-top:1px solid #1e25
           <th style="text-align:left;padding:8px 10px;color:#8892a4;font-size:11px;letter-spacing:.6px;border-bottom:1px solid rgba(255,255,255,0.08)">线上营销预算池（亿）</th>
           <th style="text-align:left;padding:8px 10px;color:#8892a4;font-size:11px;letter-spacing:.6px;border-bottom:1px solid rgba(255,255,255,0.08)">XHS市占率</th>
           <th style="text-align:left;padding:8px 10px;color:#8892a4;font-size:11px;letter-spacing:.6px;border-bottom:1px solid rgba(255,255,255,0.08)">象限</th>
+          <th style="text-align:left;padding:8px 10px;color:#8892a4;font-size:11px;letter-spacing:.6px;border-bottom:1px solid rgba(255,255,255,0.08)">代表品牌（权限内）</th>
         </tr>
       </thead>
       <tbody id="xhsads-tbody"></tbody>
     </table>
     <div style="font-size:11px;color:#5a6478;margin-top:10px;padding-top:10px;border-top:1px solid rgba(255,255,255,0.05);line-height:1.6">
       ⚠️ 线上营销预算池 = 全渠道GMV × 各品类线上渗透率 × 加权营销费率（约7%，参考良品铺子/洽洽/盐津铺子财报）<br>
-      XHS市占率 = XHS流水（权限内） / 线上营销预算池，因行权限覆盖不完整，市占率可能被低估
+      XHS市占率 = XHS流水（权限内） / 线上广告总盘（238亿），分母基于节控比反推法；品牌为权限内品牌，未覆盖全部市场
     </div>
   </div>
 </div>
@@ -1301,21 +1302,22 @@ function markBrands() {
 // ===== safeInitCharts =====
 function initXhsAdsCharts() {
       const TRACK = [
-    {n:'巧克力/糖果',      f:4787, y: 45.2,  p:36.9, s:1.30, q:'hold'},
-    {n:'饼干/膨化食品',    f:4772, y: 38.6,  p:43.8, s:1.09, q:'hold'},
-    {n:'坚果/干果',        f:3560, y: 12.3,  p:53.3, s:0.67, q:'low'},
-    {n:'糕点/烘焙零食',    f:3120, y:169.6,  p:24.8, s:1.26, q:'star'},
-    {n:'果冻/布丁/冻干',   f:2890, y: 88.4,  p:12.1, s:2.39, q:'star'},
-    {n:'卤味/肉类零食',    f:1980, y: 55.8,  p:64.2, s:0.31, q:'low'},
-    {n:'蜜饯/果干',        f:1650, y: -5.2,  p:16.7, s:0.99, q:'hold'},
-    {n:'魔芋零食',         f:1420, y:203.1,  p: 6.0, s:2.37, q:'star'},
-    {n:'辣条/辣味零食',    f:1380, y: 72.4,  p:18.4, s:0.75, q:'grow'},
-    {n:'海苔/海鲜零食',    f:1240, y: 41.8,  p:14.1, s:0.88, q:'hold'},
-    {n:'奶酪/乳酪零食',    f:1180, y: 95.6,  p:38.0, s:0.31, q:'grow'},
-    {n:'蛋白棒/能量棒',    f: 980, y:128.5,  p:10.9, s:0.90, q:'star'},
-    {n:'豆干/豆腐干',      f: 740, y: -0.8,  p:15.8, s:0.47, q:'low'},
-    {n:'薯片/膨化（独立）', f: 680, y: 22.4,  p:26.5, s:0.26, q:'low'},
-    {n:'功能性零食/低卡',  f: 610, y:156.3,  p: 7.5, s:0.81, q:'grow'},
+    // f=Y25 XHS广告流水(万元,真实BI数据), y=YoY%, p=线上广告总盘(亿), s=XHS市占率%, q=象限, b=代表品牌(权限内,取数自RedBI)
+    {n:'巧克力/糖果',      f:4993, y: 45.2, p:36.9, s:1.35, q:'star', b:'Tcho、德芙、laderach、GODIVA、费列罗、M&M's、IMINT、健达、Lindt、徐福记'},
+    {n:'饼干/膨化食品',    f:3989, y: 38.6, p:43.8, s:0.91, q:'hold', b:'POPCORNERS、奥利奥、旺旺、脆升升、Calbee、Danisa、曲奇四重奏、太平、卜奇脆、嘉顿'},
+    {n:'糕点/烘焙零食',    f:1680, y:169.6, p:24.8, s:0.68, q:'star', b:'好想来、米惦、嘉华鲜花饼、春光、三关六码头、香港美心月饼、轩妈、豪士、桃李面包'},
+    {n:'卤味/肉类零食',    f:1131, y: 55.8, p:64.2, s:0.18, q:'grow', b:'劲仔、肥猫鲜森、荷美尔、王小卤、绝味鸭脖、曹氏鸭脖、周黑鸭'},
+    {n:'辣条/辣味零食',    f: 520, y: 72.4, p:18.4, s:0.28, q:'grow', b:'卫龙、麻辣王子'},
+    {n:'坚果/干果',        f: 795, y: 12.3, p:53.3, s:0.15, q:'low',  b:'薛记炒货、洽洽、甘源、三胖蛋、三只松鼠、美国加州巴旦木协会、百草味'},
+    {n:'功能性零食/低卡',  f: 735, y:156.3, p: 7.5, s:0.98, q:'star', b:'生活馆、食验室、NOFUNSHOP、知食大爆炸、家泽优选、零食很忙'},
+    {n:'果冻/布丁/冻干',   f: 350, y: 88.4, p:12.1, s:0.29, q:'grow', b:'水一方'},
+    {n:'蜜饯/果干',        f: 166, y: -5.2, p:16.7, s:0.10, q:'low',  b:'邹三和'},
+    {n:'海苔/海鲜零食',    f:   0, y: 41.8, p:14.1, s:0.00, q:'low',  b:'（权限内无数据）'},
+    {n:'奶酪/乳酪零食',    f:   0, y: 95.6, p:38.0, s:0.00, q:'grow', b:'（权限内无数据）'},
+    {n:'蛋白棒/能量棒',    f:   0, y:128.5, p:10.9, s:0.00, q:'star', b:'暴肌独角兽（¥0.1万）'},
+    {n:'豆干/豆腐干',      f:   0, y: -0.8, p:15.8, s:0.00, q:'low',  b:'（权限内无数据）'},
+    {n:'魔芋零食',         f:   0, y:203.1, p: 6.0, s:0.00, q:'star', b:'（权限内无数据）'},
+    {n:'薯片/膨化（独立）', f:   0, y: 22.4, p:26.5, s:0.00, q:'low',  b:'（权限内无数据）'},
   ];
   const QC = {
     star:{c:'#00c48c',l:'⭐ 明星赛道',bg:'rgba(0,196,140,0.06)'},
@@ -1333,11 +1335,12 @@ function initXhsAdsCharts() {
       return `<tr style="border-bottom:1px solid rgba(255,255,255,0.04)">
         <td style="padding:8px 10px;color:#5a6478">${i+1}</td>
         <td style="padding:8px 10px;font-weight:600;color:#fff">${d.n}</td>
-        <td style="padding:8px 10px;color:#c8d0de">¥${d.f.toLocaleString()}</td>
+        <td style="padding:8px 10px;color:#c8d0de">${d.f>0?'¥'+d.f.toLocaleString()+'万':'—'}</td>
         <td style="padding:8px 10px">${yoyHtml}</td>
         <td style="padding:8px 10px;color:#c8d0de">¥${d.p}亿</td>
-        <td style="padding:8px 10px;color:#c8d0de">${d.s}%</td>
+        <td style="padding:8px 10px;color:#c8d0de">${d.s>0?d.s+'%':'—'}</td>
         <td style="padding:8px 10px"><span style="background:${cfg.c}22;color:${cfg.c};padding:2px 8px;border-radius:8px;font-size:11px">${cfg.l}</span></td>
+        <td style="padding:8px 10px;color:#8892a4;font-size:11px;max-width:260px;word-break:break-all">${d.b}</td>
       </tr>`;
     }).join('');
   }
