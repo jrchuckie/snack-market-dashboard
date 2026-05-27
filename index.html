@@ -753,13 +753,13 @@ footer{padding:16px 48px;color:#334155;font-size:11px;border-top:1px solid #1e25
     </div>
     <div class="kpi-card" style="background:#1a1d2e;border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:16px 20px;min-width:160px;flex:1">
       <div style="font-size:11px;color:#8892a4;text-transform:uppercase;letter-spacing:.8px">线上营销预算总规模（估算）</div>
-      <div style="font-size:26px;font-weight:700;color:#fff;margin-top:6px">¥82.5亿</div>
-      <div style="font-size:12px;color:#8892a4;margin-top:4px">全渠道GMV × 线上渗透率 × 营销费率</div>
+      <div style="font-size:26px;font-weight:700;color:#fff;margin-top:6px">¥238亿</div>
+      <div style="font-size:12px;color:#8892a4;margin-top:4px">节控比反推法：XHS食品流水÷XHS市占%→食品总盘949亿，休闲零食25%</div>
     </div>
     <div class="kpi-card" style="background:#1a1d2e;border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:16px 20px;min-width:160px;flex:1">
       <div style="font-size:11px;color:#8892a4;text-transform:uppercase;letter-spacing:.8px">XHS整体市占率（估算）</div>
-      <div style="font-size:26px;font-weight:700;color:#fff;margin-top:6px">~2.43%</div>
-      <div style="font-size:12px;color:#8892a4;margin-top:4px">权限内流水 / 估算线上广告盘</div>
+      <div style="font-size:26px;font-weight:700;color:#fff;margin-top:6px">~0.88%</div>
+      <div style="font-size:12px;color:#8892a4;margin-top:4px">权限内流水¥2.10亿 / 修正总盘¥238亿</div>
     </div>
     <div class="kpi-card" style="background:#1a1d2e;border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:16px 20px;min-width:160px;flex:1">
       <div style="font-size:11px;color:#8892a4;text-transform:uppercase;letter-spacing:.8px">最高增速赛道</div>
@@ -773,7 +773,7 @@ footer{padding:16px 48px;color:#334155;font-size:11px;border-top:1px solid #1e25
     <div style="font-size:13px;color:#8892a4;margin-bottom:12px">2×2 四象限 — X轴: YoY增速(%) | Y轴: XHS市占率(%) | 气泡大小: Y25流水(¥万)</div>
     <div id="ch-xhsads-bubble" style="height:480px"></div>
     <div style="font-size:11px;color:#5a6478;margin-top:10px;line-height:1.6">
-      分割线：YoY = 60%（行业均值）| 市占率 = 2.5%（中位线）&nbsp;&nbsp;
+      分割线：YoY = 60%（行业均值）| 市占率 = 0.9%（中位线，修正口径）&nbsp;&nbsp;
       右上（明星赛道）高增速+高市占 · 右下（蓝海开拓）高增速+低市占 · 左上（守成扩量）稳定但需维护份额 · 左下（低优先级）谨慎投入
     </div>
   </div>
@@ -1300,22 +1300,22 @@ function markBrands() {
 
 // ===== safeInitCharts =====
 function initXhsAdsCharts() {
-  const TRACK = [
-    {n:'巧克力/糖果',     f:4787, y:45.2,  p:12.8, s:3.74, q:'hold'},
-    {n:'饼干/膨化食品',   f:4772, y:38.6,  p:15.2, s:3.14, q:'hold'},
-    {n:'坚果/干果',       f:3560, y:12.3,  p:18.5, s:1.92, q:'low' },
-    {n:'糕点/烘焙零食',   f:3120, y:169.6, p:8.6,  s:3.63, q:'star'},
-    {n:'果冻/布丁/冻干',  f:2890, y:88.4,  p:4.2,  s:6.88, q:'star'},
-    {n:'卤味/肉类零食',   f:1980, y:55.8,  p:22.3, s:0.89, q:'grow'},
-    {n:'蜜饯/果干',       f:1650, y:-5.2,  p:5.8,  s:2.84, q:'hold'},
-    {n:'魔芋零食',        f:1420, y:203.1, p:2.1,  s:6.76, q:'star'},
-    {n:'辣条/辣味零食',   f:1380, y:72.4,  p:6.4,  s:2.16, q:'grow'},
-    {n:'海苔/海鲜零食',   f:1240, y:41.8,  p:4.9,  s:2.53, q:'hold'},
-    {n:'奶酪/乳酪零食',   f:1180, y:95.6,  p:13.2, s:0.89, q:'grow'},
-    {n:'蛋白棒/能量棒',   f:980,  y:128.5, p:3.8,  s:2.58, q:'star'},
-    {n:'豆干/豆腐干',     f:740,  y:-0.8,  p:5.5,  s:1.35, q:'low' },
-    {n:'薯片/膨化(独立)', f:680,  y:22.4,  p:9.2,  s:0.74, q:'low' },
-    {n:'功能性零食/低卡', f:610,  y:156.3, p:2.6,  s:2.35, q:'grow'},
+      const TRACK = [
+    {n:'巧克力/糖果',      f:4787, y: 45.2,  p:36.9, s:1.30, q:'hold'},
+    {n:'饼干/膨化食品',    f:4772, y: 38.6,  p:43.8, s:1.09, q:'hold'},
+    {n:'坚果/干果',        f:3560, y: 12.3,  p:53.3, s:0.67, q:'low'},
+    {n:'糕点/烘焙零食',    f:3120, y:169.6,  p:24.8, s:1.26, q:'star'},
+    {n:'果冻/布丁/冻干',   f:2890, y: 88.4,  p:12.1, s:2.39, q:'star'},
+    {n:'卤味/肉类零食',    f:1980, y: 55.8,  p:64.2, s:0.31, q:'low'},
+    {n:'蜜饯/果干',        f:1650, y: -5.2,  p:16.7, s:0.99, q:'hold'},
+    {n:'魔芋零食',         f:1420, y:203.1,  p: 6.0, s:2.37, q:'star'},
+    {n:'辣条/辣味零食',    f:1380, y: 72.4,  p:18.4, s:0.75, q:'grow'},
+    {n:'海苔/海鲜零食',    f:1240, y: 41.8,  p:14.1, s:0.88, q:'hold'},
+    {n:'奶酪/乳酪零食',    f:1180, y: 95.6,  p:38.0, s:0.31, q:'grow'},
+    {n:'蛋白棒/能量棒',    f: 980, y:128.5,  p:10.9, s:0.90, q:'star'},
+    {n:'豆干/豆腐干',      f: 740, y: -0.8,  p:15.8, s:0.47, q:'low'},
+    {n:'薯片/膨化（独立）', f: 680, y: 22.4,  p:26.5, s:0.26, q:'low'},
+    {n:'功能性零食/低卡',  f: 610, y:156.3,  p: 7.5, s:0.81, q:'grow'},
   ];
   const QC = {
     star:{c:'#00c48c',l:'⭐ 明星赛道',bg:'rgba(0,196,140,0.06)'},
@@ -1357,12 +1357,12 @@ function initXhsAdsCharts() {
   }));
   const qSeries = {type:'scatter',data:[],animation:false,
     markLine:{silent:true,symbol:'none',lineStyle:{color:'rgba(255,255,255,0.18)',type:'dashed',width:1},label:{show:false},
-      data:[[{xAxis:60,yAxis:0},{xAxis:60,yAxis:8}],[{xAxis:-20,yAxis:2.5},{xAxis:220,yAxis:2.5}]]},
+      data:[[{xAxis:60,yAxis:0},{xAxis:60,yAxis:8}],[{xAxis:-20,yAxis:0.9},{xAxis:220,yAxis:0.9}]]},
     markArea:{silent:true,data:[
-      [{name:'明星赛道',xAxis:60,yAxis:2.5,itemStyle:{color:QC.star.bg},label:{color:QC.star.c,fontSize:11,fontWeight:'bold',position:'insideTopRight'}},{xAxis:220,yAxis:8}],
-      [{name:'蓝海开拓',xAxis:60,yAxis:0,itemStyle:{color:QC.grow.bg},label:{color:QC.grow.c,fontSize:11,fontWeight:'bold',position:'insideBottomRight'}},{xAxis:220,yAxis:2.5}],
-      [{name:'守成扩量',xAxis:-20,yAxis:2.5,itemStyle:{color:QC.hold.bg},label:{color:QC.hold.c,fontSize:11,fontWeight:'bold',position:'insideTopLeft'}},{xAxis:60,yAxis:8}],
-      [{name:'低优先级',xAxis:-20,yAxis:0,itemStyle:{color:QC.low.bg},label:{color:QC.low.c,fontSize:11,fontWeight:'bold',position:'insideBottomLeft'}},{xAxis:60,yAxis:2.5}],
+      [{name:'明星赛道',xAxis:60,yAxis:0.9,itemStyle:{color:QC.star.bg},label:{color:QC.star.c,fontSize:11,fontWeight:'bold',position:'insideTopRight'}},{xAxis:220,yAxis:3}],
+      [{name:'蓝海开拓',xAxis:60,yAxis:0,itemStyle:{color:QC.grow.bg},label:{color:QC.grow.c,fontSize:11,fontWeight:'bold',position:'insideBottomRight'}},{xAxis:220,yAxis:0.9}],
+      [{name:'守成扩量',xAxis:-20,yAxis:0.9,itemStyle:{color:QC.hold.bg},label:{color:QC.hold.c,fontSize:11,fontWeight:'bold',position:'insideTopLeft'}},{xAxis:60,yAxis:3}],
+      [{name:'低优先级',xAxis:-20,yAxis:0,itemStyle:{color:QC.low.bg},label:{color:QC.low.c,fontSize:11,fontWeight:'bold',position:'insideBottomLeft'}},{xAxis:60,yAxis:0.9}],
     ]}
   };
   bc.setOption({backgroundColor:'transparent',
@@ -1371,7 +1371,7 @@ function initXhsAdsCharts() {
     xAxis:{name:'YoY增速 (%)',nameLocation:'middle',nameGap:32,nameTextStyle:{color:'#8892a4',fontSize:11},type:'value',min:-20,max:220,
       splitLine:{lineStyle:{color:'rgba(255,255,255,0.05)'}},axisLine:{lineStyle:{color:'rgba(255,255,255,0.15)'}},
       axisLabel:{color:'#8892a4',fontSize:10,formatter:v=>v+'%'}},
-    yAxis:{name:'XHS市占率 (%)',nameLocation:'middle',nameGap:44,nameTextStyle:{color:'#8892a4',fontSize:11},type:'value',min:0,max:8,
+    yAxis:{name:'XHS市占率 (%)',nameLocation:'middle',nameGap:44,nameTextStyle:{color:'#8892a4',fontSize:11},type:'value',min:0,max:3,
       splitLine:{lineStyle:{color:'rgba(255,255,255,0.05)'}},axisLine:{lineStyle:{color:'rgba(255,255,255,0.15)'}},
       axisLabel:{color:'#8892a4',fontSize:10,formatter:v=>v+'%'}},
     tooltip:{trigger:'item',backgroundColor:'#1a1d2e',borderColor:'rgba(255,255,255,0.12)',textStyle:{color:'#e8eaf0',fontSize:12},
