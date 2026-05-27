@@ -1318,9 +1318,9 @@ function initXhsAdsCharts() {
     {n:'功能性零食/低卡', f:610,  y:156.3, p:2.6,  s:2.35, q:'grow'},
   ];
   const QC = {
-    star:{c:'#ff2442',l:'⭐ 明星赛道',bg:'rgba(255,36,66,0.04)'},
-    grow:{c:'#52c41a',l:'🚀 蓝海开拓',bg:'rgba(82,196,26,0.04)'},
-    hold:{c:'#faad14',l:'🛡 守成扩量',bg:'rgba(250,173,20,0.04)'},
+    star:{c:'#00c48c',l:'⭐ 明星赛道',bg:'rgba(0,196,140,0.06)'},
+    grow:{c:'#4e9fff',l:'🚀 蓝海开拓',bg:'rgba(78,159,255,0.06)'},
+    hold:{c:'#faad14',l:'🛡 守成扩量',bg:'rgba(250,173,20,0.05)'},
     low: {c:'#8892a4',l:'⬇ 低优先级', bg:'rgba(136,146,164,0.04)'},
   };
   // 渲染表格
@@ -1350,7 +1350,7 @@ function initXhsAdsCharts() {
   const scSeries = Object.entries(grps).map(([q,pts])=>({
     name:QC[q].l, type:'scatter',
     data:pts,
-    symbolSize:v=>Math.max(12,Math.sqrt(v[2])*2.0),
+    symbolSize:v=>Math.max(6,Math.sqrt(v[2])*1.1),
     itemStyle:{color:QC[q].c,opacity:0.82,borderColor:'#fff',borderWidth:0.5},
     label:{show:true,formatter:p=>p.data[3],position:'top',fontSize:10,color:'#c8d0de'},
     emphasis:{itemStyle:{opacity:1,shadowBlur:8,shadowColor:QC[q].c}}
@@ -1387,11 +1387,11 @@ function initXhsAdsCharts() {
     barc.setOption({backgroundColor:'transparent',
       grid:{left:120,right:24,top:12,bottom:36},
       xAxis:{type:'value',axisLabel:{color:'#8892a4',fontSize:10,formatter:v=>'¥'+v.toLocaleString()},splitLine:{lineStyle:{color:'rgba(255,255,255,0.05)'}}},
-      yAxis:{type:'category',data:sortedF.map(d=>d.n),axisLabel:{color:'#c8d0de',fontSize:9},axisLine:{show:false},axisTick:{show:false}},
+      yAxis:{type:'category',data:[...sortedF].reverse().map(d=>d.n),axisLabel:{color:'#c8d0de',fontSize:9},axisLine:{show:false},axisTick:{show:false}},
       tooltip:{trigger:'item',backgroundColor:'#1a1d2e',borderColor:'rgba(255,255,255,0.12)',textStyle:{color:'#e8eaf0'},
         formatter:p=>`${sortedF[p.dataIndex].n}<br/>Y25流水：¥${p.value.toLocaleString()}万`},
       series:[{type:'bar',barMaxWidth:16,
-        data:sortedF.map(d=>({value:d.f,itemStyle:{color:QC[d.q].c,opacity:0.8,borderRadius:[0,3,3,0]}})),
+        data:[...sortedF].reverse().map(d=>({value:d.f,itemStyle:{color:QC[d.q].c,opacity:0.8,borderRadius:[0,3,3,0]}})),
         label:{show:true,position:'right',color:'#8892a4',fontSize:9,formatter:p=>'¥'+p.value.toLocaleString()}}]});
     window.addEventListener('resize',()=>barc.resize());
   }
@@ -1403,11 +1403,11 @@ function initXhsAdsCharts() {
     yoyc.setOption({backgroundColor:'transparent',
       grid:{left:120,right:40,top:12,bottom:36},
       xAxis:{type:'value',axisLabel:{color:'#8892a4',fontSize:10,formatter:v=>v+'%'},splitLine:{lineStyle:{color:'rgba(255,255,255,0.05)'}}},
-      yAxis:{type:'category',data:sortedY.map(d=>d.n),axisLabel:{color:'#c8d0de',fontSize:9},axisLine:{show:false},axisTick:{show:false}},
+      yAxis:{type:'category',data:[...sortedY].reverse().map(d=>d.n),axisLabel:{color:'#c8d0de',fontSize:9},axisLine:{show:false},axisTick:{show:false}},
       tooltip:{trigger:'item',backgroundColor:'#1a1d2e',borderColor:'rgba(255,255,255,0.12)',textStyle:{color:'#e8eaf0'},
         formatter:p=>`${sortedY[p.dataIndex].n}<br/>YoY：${p.value>=0?'+':''}${p.value}%`},
       series:[{type:'bar',barMaxWidth:16,
-        data:sortedY.map(d=>({value:d.y,itemStyle:{color:d.y>=100?'#ff2442':d.y>=60?'#52c41a':d.y>=0?'#faad14':'#8892a4',opacity:0.85,borderRadius:[0,3,3,0]}})),
+        data:[...sortedY].reverse().map(d=>({value:d.y,itemStyle:{color:d.y>=100?'#00c48c':d.y>=60?'#52d48a':d.y>=0?'#faad14':'#8892a4',opacity:0.85,borderRadius:[0,3,3,0]}})),
         label:{show:true,position:'right',color:'#8892a4',fontSize:9,formatter:p=>(p.value>=0?'+':'')+p.value+'%'}}]});
     window.addEventListener('resize',()=>yoyc.resize());
   }
