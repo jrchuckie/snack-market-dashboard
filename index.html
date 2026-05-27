@@ -469,10 +469,10 @@ footer{padding:16px 48px;color:#334155;font-size:11px;border-top:1px solid #1e25
           <th style="padding:9px 7px;text-align:center;border-bottom:1px solid #1e2538">头部<br>可攻</th>
           <th style="padding:9px 7px;text-align:center;border-bottom:1px solid #1e2538">新兴<br>活跃</th>
           <th style="padding:9px 7px;text-align:center;border-bottom:1px solid #1e2538;color:#60a5fa;min-width:50px">MA</th>
-          <th style="padding:9px 7px;text-align:center;border-bottom:1px solid #1e2538">内容<br>存量</th>
-          <th style="padding:9px 7px;text-align:center;border-bottom:1px solid #1e2538">内容<br>增速</th>
-          <th style="padding:9px 7px;text-align:center;border-bottom:1px solid #1e2538">决策<br>链路</th>
-          <th style="padding:9px 7px;text-align:center;border-bottom:1px solid #1e2538">解决<br>方案</th>
+          <th style="padding:9px 7px;text-align:center;border-bottom:1px solid #1e2538">内容<br>存量<br><span style="color:#10b981;font-size:9px">★真实</span></th>
+          <th style="padding:9px 7px;text-align:center;border-bottom:1px solid #1e2538">内容<br>增速<br><span style="color:#10b981;font-size:9px">★真实</span></th>
+          <th style="padding:9px 7px;text-align:center;border-bottom:1px solid #1e2538">决策<br>链路<br><span style="color:#faad14;font-size:9px">主观</span></th>
+          <th style="padding:9px 7px;text-align:center;border-bottom:1px solid #1e2538">解决<br>方案<br><span style="color:#faad14;font-size:9px">主观</span></th>
           <th style="padding:9px 7px;text-align:center;border-bottom:1px solid #1e2538;color:#10b981;min-width:50px">ATW</th>
           <th style="padding:9px 7px;text-align:center;border-bottom:1px solid #1e2538;min-width:120px">象限</th>
         </tr>
@@ -842,23 +842,23 @@ const ALL_CAT_SCORES = [
    ma:[4,1,4,2], atw:[3,2,3,3], advertiser:'有', potential:'高', new_brand:'低',
    ugc:{y25:5.72e8, y24:5.75e8, yoy:-0.5}},  // ★ Y25曝光5.72亿
   {key:'dried',  name:'蜜饯/枣梅/果干',  icon:'🍑', zone:'mature',   gmv:130, yoy:-16.9,
-   ma:[3,1,3,2], atw:[2,2,3,1], advertiser:'有', potential:'中', new_brand:'低',
+   ma:[3,1,3,2], atw:[3,1,3,1], advertiser:'有', potential:'中', new_brand:'低',
    ugc:null},  // 待第二批
   {key:'biscuit',name:'饼干/膨化',       icon:'🍘', zone:'mature',   gmv:75,  yoy:null,
-   ma:[3,1,3,1], atw:[2,2,3,3], advertiser:'有', potential:'中', new_brand:'低',
+   ma:[3,1,3,1], atw:[3,3,3,3], advertiser:'有', potential:'中', new_brand:'低',
    ugc:null},  // 待第二批
   // 成长竞争区
   {key:'meat',   name:'卤味/肉类零食',   icon:'🥩', zone:'growth',   gmv:219, yoy:19.2,
    ma:[5,4,3,3], atw:[3,1,3,3], advertiser:'有', potential:'高', new_brand:'中',
    ugc:{y25:8.61e8, y24:10.51e8, yoy:-18.0}},  // ★ Y25曝光8.61亿 YoY-18%
   {key:'cake',   name:'传统糕点/烘焙',   icon:'🎂', zone:'growth',   gmv:133, yoy:15.0,
-   ma:[4,3,3,3], atw:[2,2,3,3], advertiser:'有', potential:'高', new_brand:'中',
+   ma:[4,3,3,3], atw:[1,4,3,3], advertiser:'有', potential:'高', new_brand:'中',
    ugc:null},  // 待第二批
   {key:'cheese', name:'奶酪零食',        icon:'🧀', zone:'growth',   gmv:143, yoy:9.0,
-   ma:[4,3,3,4], atw:[2,2,3,3], advertiser:'中', potential:'高', new_brand:'高',
+   ma:[4,3,3,4], atw:[5,4,3,3], advertiser:'中', potential:'高', new_brand:'高',
    ugc:null},  // 待第二批
   {key:'candy',  name:'传统糖果/果冻',   icon:'🍬', zone:'growth',   gmv:50,  yoy:10.8,
-   ma:[3,3,3,2], atw:[2,2,3,3], advertiser:'有', potential:'中', new_brand:'中',
+   ma:[3,3,3,2], atw:[2,1,3,3], advertiser:'有', potential:'中', new_brand:'中',
    ugc:null},  // 待第二批
   {key:'choco',  name:'巧克力',          icon:'🍫', zone:'growth',   gmv:52,  yoy:4.6,
    ma:[3,2,3,2], atw:[5,5,3,3], advertiser:'有', potential:'中', new_brand:'低',
@@ -868,10 +868,10 @@ const ALL_CAT_SCORES = [
    ugc:{y25:7.39e8, y24:9.41e8, yoy:-21.5}},  // ★ Y25曝光7.39亿 YoY-21.5%
   // Emerging
   {key:'funccandy', name:'功能软糖/功能性零食', icon:'💊', zone:'emerging', gmv:5.0, yoy:20.0,
-   ma:[2,4,1,5], atw:[1,2,5,3], advertiser:'低', potential:'高', new_brand:'高',
+   ma:[2,4,1,5], atw:[3,1,5,3], advertiser:'低', potential:'高', new_brand:'高',
    ugc:null},  // 待第二批
   {key:'grain',  name:'谷物/麦片',       icon:'🌾', zone:'emerging', gmv:19,  yoy:15.0,
-   ma:[3,4,3,3], atw:[2,2,3,3], advertiser:'中', potential:'高', new_brand:'高',
+   ma:[3,4,3,3], atw:[3,1,3,3], advertiser:'中', potential:'高', new_brand:'高',
    ugc:null},  // 待第二批
   {key:'freeze', name:'冻干零食',        icon:'❄️', zone:'emerging', gmv:0.7, yoy:15.0,
    ma:[1,3,1,3], atw:[1,2,3,2], advertiser:'低', potential:'低', new_brand:'中',
