@@ -212,6 +212,28 @@ footer{padding:16px 48px;color:#334155;font-size:11px;border-top:1px solid #1e25
 .sfilter.on{background:rgba(59,130,246,.15);color:#60a5fa;border-color:#3b82f6}
 
 </style>
+<script>
+// 早期定义switchTab，确保Tab点击在任何script加载状态下都能工作
+function switchTab(id, el) {
+  document.querySelectorAll('.npanel').forEach(p => p.classList.remove('on'));
+  document.querySelectorAll('.ntab').forEach(t => t.classList.remove('on'));
+  const panel = document.getElementById('tab-' + id);
+  if (panel) panel.classList.add('on');
+  if (el) el.classList.add('on');
+  if (typeof safeInitCharts === 'function') {
+    setTimeout(safeInitCharts, 100);
+  }
+  if (id === 'scoring' && typeof renderScoringTable === 'function') {
+    setTimeout(function(){ renderScoringTable(); renderMatrix(); }, 150);
+  }
+  if (id === 'xhsads' && typeof initXhsAdsCharts === 'function') {
+    setTimeout(initXhsAdsCharts, 150);
+  }
+  if (id === 'brands' && typeof rebuildBrandCats === 'function') {
+    setTimeout(function(){ rebuildBrandCats(typeof currentGroup !== 'undefined' ? currentGroup : 'mature'); }, 150);
+  }
+}
+</script>
 </head>
 <body>
 
