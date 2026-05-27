@@ -219,7 +219,7 @@ footer{padding:16px 48px;color:#334155;font-size:11px;border-top:1px solid #1e25
   <div class="hdr-tags">
     <span class="tag tag-b">全网电商</span>
     <span class="tag tag-a">Y25全年</span>
-    <span class="tag tag-g">14品类框架</span>
+    <span class="tag tag-g">12品类框架</span>
     <span class="tag tag-b">品牌数据合并去重</span>
     <span class="tag tag-g">Emerging实测数据</span>
   </div>
@@ -231,7 +231,7 @@ footer{padding:16px 48px;color:#334155;font-size:11px;border-top:1px solid #1e25
   <div class="kpi"><div class="kpi-l">Y25 总GMV</div><div class="kpi-v" style="color:#f1f5f9">¥1,178亿</div><div class="kpi-s down">▼ -3.6% vs Y24</div></div>
   <div class="kpi"><div class="kpi-l">最大品类</div><div class="kpi-v" style="color:#60a5fa">坚果炒货</div><div class="kpi-s neu">¥169亿 · 14.4%</div></div>
   <div class="kpi"><div class="kpi-l">成长区冠军</div><div class="kpi-v" style="color:#10b981">卤味零食</div><div class="kpi-s up">▲ +19.2%</div></div>
-  <div class="kpi"><div class="kpi-l">Emerging热点</div><div class="kpi-v" style="color:#f59e0b">奶酪·魔芋</div><div class="kpi-s hot">奶酪¥143亿·魔芋6.1亿</div></div>
+  <div class="kpi"><div class="kpi-l">Emerging热点</div><div class="kpi-v" style="color:#f59e0b">奶酪零食</div><div class="kpi-s hot">奶酪¥143亿·魔芋6.1亿</div></div>
   <div class="kpi"><div class="kpi-l">跌幅最大</div><div class="kpi-v" style="color:#ef4444">混合坚果</div><div class="kpi-s down">▼ -51% · ¥21亿</div></div>
 </div>
 
@@ -246,7 +246,7 @@ footer{padding:16px 48px;color:#334155;font-size:11px;border-top:1px solid #1e25
 
 <!-- ===== 品类矩阵 ===== -->
 <div id="tab-overview" class="panel on">
-  <div class="sec-title">14品类评估框架 · 全网电商实测 GMV & YOY</div>
+  <div class="sec-title">12品类评估框架 · 全网电商实测 GMV & YOY</div>
 
   <div style="display:flex;gap:10px;margin-bottom:18px;flex-wrap:wrap">
     <div style="flex:1;min-width:180px;background:#111827;border:1px solid #2d3748;border-left:3px solid #475569;border-radius:8px;padding:12px 16px">
@@ -409,7 +409,7 @@ footer{padding:16px 48px;color:#334155;font-size:11px;border-top:1px solid #1e25
     </div>
 
     <div class="em-card hl">
-      <div class="em-hdr"><div class="em-name">💊 功能软糖</div><span class="em-badge b-eg">Emerging</span></div>
+      <div class="em-hdr"><div class="em-name">💊 功能软糖/功能性零食</div><span class="em-badge b-eg">Emerging</span></div>
       <div class="em-stats">
         <div class="em-s"><div class="em-sl">市场规模</div><div class="em-sv up">~¥5亿</div></div>
         <div class="em-s"><div class="em-sl">增速</div><div class="em-sv up">+20%+</div></div>
@@ -466,7 +466,7 @@ footer{padding:16px 48px;color:#334155;font-size:11px;border-top:1px solid #1e25
   <!-- 分区筛选 -->
   <div style="display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap;align-items:center">
     <span style="font-size:11px;color:#475569;font-weight:600">按三区筛选：</span>
-    <div class="sztab on" onclick="setScoringZone('all',this)">📋 全部（14+1）</div>
+    <div class="sztab on" onclick="setScoringZone('all',this)">📋 全部（12）</div>
     <div class="sztab" onclick="setScoringZone('mature',this)" style="border-color:#64748b">⬜ 传统成熟区</div>
     <div class="sztab" onclick="setScoringZone('growth',this)" style="border-color:#3b82f6">🔵 成长竞争区</div>
     <div class="sztab" onclick="setScoringZone('emerging',this)" style="border-color:#f59e0b">⭐ Emerging</div>
@@ -657,7 +657,7 @@ footer{padding:16px 48px;color:#334155;font-size:11px;border-top:1px solid #1e25
     </div>
 
     <div style="background:#111827;border:1px solid #1e2538;border-radius:10px;padding:14px">
-      <div style="font-size:13px;font-weight:700;color:#e2e8f0;margin-bottom:6px">💊 功能软糖</div>
+      <div style="font-size:13px;font-weight:700;color:#e2e8f0;margin-bottom:6px">💊 功能软糖/功能性零食</div>
       <div style="font-size:11px;color:#94a3b8;line-height:1.6;margin-bottom:8px">益生菌软糖（已较成熟）vs 褪黑素/睡眠软糖（增速更快）vs 美容胶原蛋白软糖 — 功效诉求差异大</div>
       <div style="font-size:10px;padding:4px 8px;background:#0b0e18;border-radius:6px;color:#64748b">L3建议：益生菌 / 睡眠&情绪 / 美容护肤</div>
     </div>
@@ -808,7 +808,7 @@ footer{padding:16px 48px;color:#334155;font-size:11px;border-top:1px solid #1e25
 
 <script>
 // ===== 品牌数据（合并去重后）=====
-const BD = {"nuts":[{"name":"三只松鼠","gmv":16.97},{"name":"百草味","gmv":8.45},{"name":"沃隆","gmv":4.54},{"name":"良品铺子","gmv":3.52},{"name":"洽洽","gmv":3.73},{"name":"老街口","gmv":2.05},{"name":"旭东","gmv":1.31},{"name":"仓鼠行动","gmv":1.28},{"name":"张笨仁","gmv":0.91},{"name":"三胖蛋","gmv":0.9},{"name":"尚恰","gmv":0.82},{"name":"华味亨","gmv":0.65},{"name":"良品生活","gmv":0.5},{"name":"甘源","gmv":0.48},{"name":"薛记炒货","gmv":0.56}],"meat":[{"name":"王小卤","gmv":6.49},{"name":"三只松鼠","gmv":5.99},{"name":"袋鼠先生","gmv":4.62},{"name":"盐津铺子","gmv":4.09},{"name":"旺家福","gmv":3.64},{"name":"农香森","gmv":2.7},{"name":"陈阿炳","gmv":2.26},{"name":"馋小乖","gmv":1.96},{"name":"无穷","gmv":1.95},{"name":"藤桥牌","gmv":1.89},{"name":"蒙都","gmv":1.79},{"name":"豁尔臣","gmv":1.67},{"name":"食乐康","gmv":1.63},{"name":"周黑鸭","gmv":1.62},{"name":"懒吃侠","gmv":1.6},{"name":"寻香牧场","gmv":1.38},{"name":"旺旺","gmv":0.8}],"cake":[{"name":"三只松鼠","gmv":8.11},{"name":"甄磨坊","gmv":5.06},{"name":"稻香村","gmv":3.64},{"name":"比比赞","gmv":2.94},{"name":"劲家庄","gmv":2.92},{"name":"豪士","gmv":2.49},{"name":"杨先生","gmv":2.34},{"name":"嘉华","gmv":2.07},{"name":"徐福记","gmv":2.06},{"name":"桃李","gmv":1.82},{"name":"面包加","gmv":1.65},{"name":"知味观","gmv":1.62},{"name":"达利园","gmv":1.59},{"name":"黄庄月饼","gmv":1.56},{"name":"宫季每日鲜","gmv":1.48},{"name":"轩妈","gmv":1.47},{"name":"好利来","gmv":1.3},{"name":"泸溪河","gmv":1.18},{"name":"壹点壹滴","gmv":0.98}],"biscuit":[{"name":"乐事","gmv":5.47},{"name":"脆升升","gmv":4.0},{"name":"旺旺","gmv":3.24},{"name":"奥利奥","gmv":3.28},{"name":"江中食疗","gmv":2.78},{"name":"三只松鼠","gmv":2.02},{"name":"比比赞","gmv":1.52},{"name":"茶颜悦色","gmv":1.49},{"name":"格力高","gmv":1.46},{"name":"良品铺子","gmv":1.28},{"name":"葡记","gmv":1.1},{"name":"雀巢","gmv":1.01},{"name":"山姆会员店","gmv":1.01},{"name":"盼盼","gmv":0.94},{"name":"米多奇","gmv":0.89}],"candy":[{"name":"徐福记","gmv":3.03},{"name":"茶口乐","gmv":3.01},{"name":"慢严舒柠","gmv":1.65},{"name":"kissport","gmv":1.52},{"name":"绿箭","gmv":1.2},{"name":"大白兔","gmv":1.18},{"name":"筷小喵","gmv":1.12},{"name":"阿尔卑斯","gmv":1.07},{"name":"益美滋","gmv":0.97},{"name":"喜之郎","gmv":0.94},{"name":"旺旺","gmv":0.91},{"name":"炫迈","gmv":0.87},{"name":"二宝","gmv":0.86},{"name":"mizunun","gmv":0.82},{"name":"宏源","gmv":0.76},{"name":"春光","gmv":0.63}],"choco":[{"name":"德芙","gmv":8.46},{"name":"费列罗","gmv":2.93},{"name":"瑞士莲","gmv":2.84},{"name":"诺梵","gmv":2.63},{"name":"歌帝梵","gmv":0.98},{"name":"朵娜贝拉","gmv":0.88},{"name":"士力架","gmv":0.86},{"name":"丑八怪","gmv":0.85},{"name":"明治","gmv":0.65},{"name":"闻绮","gmv":0.63},{"name":"脆香米","gmv":0.6},{"name":"PATCHI","gmv":0.55},{"name":"巧兮兮","gmv":0.52},{"name":"典趣","gmv":0.5},{"name":"好时","gmv":0.5},{"name":"乖不二","gmv":0.49}],"dried":[{"name":"好想你","gmv":2.31},{"name":"三只松鼠","gmv":2.07},{"name":"牧果人","gmv":1.36},{"name":"春江月","gmv":0.7},{"name":"溜溜梅","gmv":0.68},{"name":"百草味","gmv":0.59},{"name":"西域美农","gmv":0.59},{"name":"齐云山","gmv":0.58},{"name":"华味亨","gmv":0.53},{"name":"福满棚","gmv":0.52},{"name":"甄磨坊","gmv":0.5},{"name":"薛记炒货","gmv":0.49},{"name":"老金磨方","gmv":0.28},{"name":"珍享","gmv":0.22}],"tofu":[{"name":"卫龙","gmv":2.1},{"name":"麻辣王子","gmv":1.54},{"name":"乡乡嘴","gmv":1.4},{"name":"思乡山","gmv":1.07},{"name":"馋小乖","gmv":0.72},{"name":"盐津铺子","gmv":0.46},{"name":"祖名","gmv":0.44},{"name":"原本记忆","gmv":0.42},{"name":"湘扬农庄","gmv":0.4},{"name":"卫道","gmv":0.35},{"name":"豆有味","gmv":0.31},{"name":"飞旺","gmv":0.3},{"name":"辣夫人","gmv":0.29},{"name":"俏巴蜀","gmv":0.27},{"name":"缺牙齿","gmv":0.27},{"name":"梅山古镇","gmv":0.26},{"name":"笑辣辣","gmv":0.23}],"grain":[{"name":"西麦","gmv":9.41},{"name":"桂格","gmv":3.8},{"name":"欧扎克","gmv":1.35},{"name":"金味","gmv":1.27},{"name":"欣善怡","gmv":1.2},{"name":"卡乐b","gmv":1.06},{"name":"江中食疗","gmv":0.95},{"name":"稻小呆","gmv":0.77},{"name":"阴山优麦","gmv":0.74},{"name":"隆嘉盛","gmv":0.58},{"name":"穗格氏","gmv":0.56},{"name":"世壮","gmv":0.5},{"name":"山姆会员店","gmv":0.34},{"name":"厨籽康","gmv":0.32},{"name":"泰城谷匠","gmv":0.32},{"name":"暴走工坊","gmv":0.32},{"name":"馋小德","gmv":0.31}],"seaweed":[{"name":"美好时光","gmv":2.32},{"name":"秋田满满","gmv":0.7},{"name":"波力","gmv":0.65},{"name":"老板仔","gmv":0.54},{"name":"花田熊","gmv":0.54},{"name":"不二宝贝","gmv":0.5},{"name":"百草味","gmv":0.45},{"name":"光庆","gmv":0.42},{"name":"甄磨坊","gmv":0.38},{"name":"小鹿蓝蓝","gmv":0.35},{"name":"海狸先生","gmv":0.3},{"name":"宝宝馋了","gmv":0.29},{"name":"清净园","gmv":0.27},{"name":"ZEK","gmv":0.33},{"name":"虎小将","gmv":0.23},{"name":"农亨","gmv":0.19},{"name":"三只松鼠","gmv":0.23},{"name":"爷爷的农场","gmv":0.13}],"freeze":[{"name":"有零有食","gmv":0.51},{"name":"甄磨坊","gmv":0.17},{"name":"致每","gmv":0.05},{"name":"原果探鲜","gmv":0.03},{"name":"山姆会员店","gmv":0.03},{"name":"润物说","gmv":0.03},{"name":"喵在其中","gmv":0.02},{"name":"市舶士","gmv":0.02},{"name":"三只松鼠","gmv":0.02},{"name":"盐津铺子","gmv":0.02},{"name":"立兴","gmv":0.02},{"name":"全福德","gmv":0.01},{"name":"好想你","gmv":0.01},{"name":"小市一庄","gmv":0.01},{"name":"檬冻","gmv":0.01},{"name":"甘源","gmv":0.01}],"cheese":[{"name":"妙可蓝多","gmv":6.69},{"name":"kiri","gmv":2.73},{"name":"奶酪博士","gmv":2.61},{"name":"伊利","gmv":1.32},{"name":"西域皇后","gmv":1.29},{"name":"百吉福","gmv":1.21},{"name":"安佳","gmv":0.98},{"name":"瑞慕","gmv":0.62},{"name":"琪雷萨","gmv":0.54},{"name":"牧民人家","gmv":0.39},{"name":"飞鹤","gmv":0.32},{"name":"妙飞","gmv":0.31},{"name":"西域华腾","gmv":0.3},{"name":"乐芝牛","gmv":0.3},{"name":"辛尼里奇","gmv":0.26}],"konjac":[{"name":"卫龙","gmv":3.89},{"name":"南江桥","gmv":1.17},{"name":"盐津铺子","gmv":1.0},{"name":"湘食季","gmv":0.21},{"name":"缺牙齿","gmv":0.17},{"name":"俏巴蜀","gmv":0.17},{"name":"三只松鼠","gmv":0.17},{"name":"怡冠园","gmv":0.11},{"name":"捍味","gmv":0.1},{"name":"艾妍","gmv":0.09},{"name":"舌溜溜","gmv":0.09},{"name":"胡婆婆","gmv":0.09},{"name":"嘎嘎嘴","gmv":0.07},{"name":"良品铺子","gmv":0.06},{"name":"大嘴君","gmv":0.05},{"name":"爆湘","gmv":0.05},{"name":"三湘世家","gmv":0.04},{"name":"比比赞","gmv":0.03}],"funccandy":[{"name":"优姿曼","gmv":0.48},{"name":"徐福记","gmv":0.36},{"name":"贝欧宝","gmv":0.21},{"name":"埃尔忒弥斯","gmv":0.14},{"name":"阿麦斯","gmv":0.21},{"name":"解龄","gmv":0.16},{"name":"旺旺","gmv":0.15},{"name":"OMEK","gmv":0.14},{"name":"口力","gmv":0.12},{"name":"珍宝珠","gmv":0.11},{"name":"慢严舒柠","gmv":0.07},{"name":"泰尔","gmv":0.11},{"name":"悠哈","gmv":0.1},{"name":"茶颜清","gmv":0.09},{"name":"甜睡","gmv":0.09},{"name":"彩虹糖","gmv":0.08},{"name":"哈瑞宝","gmv":0.03},{"name":"二宝","gmv":0.05}]};
+const BD = {"nuts":[{"name":"三只松鼠","gmv":16.97},{"name":"百草味","gmv":8.45},{"name":"沃隆","gmv":4.54},{"name":"良品铺子","gmv":3.52},{"name":"洽洽","gmv":3.73},{"name":"老街口","gmv":2.05},{"name":"旭东","gmv":1.31},{"name":"仓鼠行动","gmv":1.28},{"name":"张笨仁","gmv":0.91},{"name":"三胖蛋","gmv":0.9},{"name":"尚恰","gmv":0.82},{"name":"华味亨","gmv":0.65},{"name":"良品生活","gmv":0.5},{"name":"甘源","gmv":0.48},{"name":"薛记炒货","gmv":0.56}],"meat":[{"name":"王小卤","gmv":6.49},{"name":"三只松鼠","gmv":5.99},{"name":"袋鼠先生","gmv":4.62},{"name":"盐津铺子","gmv":4.09},{"name":"旺家福","gmv":3.64},{"name":"农香森","gmv":2.7},{"name":"陈阿炳","gmv":2.26},{"name":"馋小乖","gmv":1.96},{"name":"无穷","gmv":1.95},{"name":"藤桥牌","gmv":1.89},{"name":"蒙都","gmv":1.79},{"name":"豁尔臣","gmv":1.67},{"name":"食乐康","gmv":1.63},{"name":"周黑鸭","gmv":1.62},{"name":"懒吃侠","gmv":1.6},{"name":"寻香牧场","gmv":1.38},{"name":"旺旺","gmv":0.8}],"cake":[{"name":"三只松鼠","gmv":8.11},{"name":"甄磨坊","gmv":5.06},{"name":"稻香村","gmv":3.64},{"name":"比比赞","gmv":2.94},{"name":"劲家庄","gmv":2.92},{"name":"豪士","gmv":2.49},{"name":"杨先生","gmv":2.34},{"name":"嘉华","gmv":2.07},{"name":"徐福记","gmv":2.06},{"name":"桃李","gmv":1.82},{"name":"面包加","gmv":1.65},{"name":"知味观","gmv":1.62},{"name":"达利园","gmv":1.59},{"name":"黄庄月饼","gmv":1.56},{"name":"宫季每日鲜","gmv":1.48},{"name":"轩妈","gmv":1.47},{"name":"好利来","gmv":1.3},{"name":"泸溪河","gmv":1.18},{"name":"壹点壹滴","gmv":0.98}],"biscuit":[{"name":"乐事","gmv":5.47},{"name":"脆升升","gmv":4.0},{"name":"旺旺","gmv":3.24},{"name":"奥利奥","gmv":3.28},{"name":"江中食疗","gmv":2.78},{"name":"三只松鼠","gmv":2.02},{"name":"比比赞","gmv":1.52},{"name":"茶颜悦色","gmv":1.49},{"name":"格力高","gmv":1.46},{"name":"良品铺子","gmv":1.28},{"name":"葡记","gmv":1.1},{"name":"雀巢","gmv":1.01},{"name":"山姆会员店","gmv":1.01},{"name":"盼盼","gmv":0.94},{"name":"米多奇","gmv":0.89}],"candy":[{"name":"徐福记","gmv":3.03},{"name":"茶口乐","gmv":3.01},{"name":"慢严舒柠","gmv":1.65},{"name":"kissport","gmv":1.52},{"name":"绿箭","gmv":1.2},{"name":"大白兔","gmv":1.18},{"name":"筷小喵","gmv":1.12},{"name":"阿尔卑斯","gmv":1.07},{"name":"益美滋","gmv":0.97},{"name":"喜之郎","gmv":0.94},{"name":"旺旺","gmv":0.91},{"name":"炫迈","gmv":0.87},{"name":"二宝","gmv":0.86},{"name":"mizunun","gmv":0.82},{"name":"宏源","gmv":0.76},{"name":"春光","gmv":0.63}],"choco":[{"name":"德芙","gmv":8.46},{"name":"费列罗","gmv":2.93},{"name":"瑞士莲","gmv":2.84},{"name":"诺梵","gmv":2.63},{"name":"歌帝梵","gmv":0.98},{"name":"朵娜贝拉","gmv":0.88},{"name":"士力架","gmv":0.86},{"name":"丑八怪","gmv":0.85},{"name":"明治","gmv":0.65},{"name":"闻绮","gmv":0.63},{"name":"脆香米","gmv":0.6},{"name":"PATCHI","gmv":0.55},{"name":"巧兮兮","gmv":0.52},{"name":"典趣","gmv":0.5},{"name":"好时","gmv":0.5},{"name":"乖不二","gmv":0.49}],"dried":[{"name":"好想你","gmv":2.31},{"name":"三只松鼠","gmv":2.07},{"name":"牧果人","gmv":1.36},{"name":"春江月","gmv":0.7},{"name":"溜溜梅","gmv":0.68},{"name":"百草味","gmv":0.59},{"name":"西域美农","gmv":0.59},{"name":"齐云山","gmv":0.58},{"name":"华味亨","gmv":0.53},{"name":"福满棚","gmv":0.52},{"name":"甄磨坊","gmv":0.5},{"name":"薛记炒货","gmv":0.49},{"name":"老金磨方","gmv":0.28},{"name":"珍享","gmv":0.22}],"tofu":[{"name":"卫龙","gmv":2.1},{"name":"麻辣王子","gmv":1.54},{"name":"乡乡嘴","gmv":1.4},{"name":"思乡山","gmv":1.07},{"name":"馋小乖","gmv":0.72},{"name":"盐津铺子","gmv":0.46},{"name":"祖名","gmv":0.44},{"name":"原本记忆","gmv":0.42},{"name":"湘扬农庄","gmv":0.4},{"name":"卫道","gmv":0.35},{"name":"豆有味","gmv":0.31},{"name":"飞旺","gmv":0.3},{"name":"辣夫人","gmv":0.29},{"name":"俏巴蜀","gmv":0.27},{"name":"缺牙齿","gmv":0.27},{"name":"梅山古镇","gmv":0.26},{"name":"笑辣辣","gmv":0.23},{"name":"卫龙","gmv":3.89},{"name":"南江桥","gmv":1.17},{"name":"盐津铺子","gmv":1.0},{"name":"湘食季","gmv":0.21},{"name":"缺牙齿","gmv":0.17},{"name":"俏巴蜀","gmv":0.17},{"name":"三只松鼠","gmv":0.17},{"name":"怡冠园","gmv":0.11},{"name":"捍味","gmv":0.1},{"name":"艾妍","gmv":0.09},{"name":"舌溜溜","gmv":0.09},{"name":"胡婆婆","gmv":0.09},{"name":"嘎嘎嘴","gmv":0.07},{"name":"良品铺子","gmv":0.06},{"name":"大嘴君","gmv":0.05},{"name":"爆湘","gmv":0.05},{"name":"三湘世家","gmv":0.04},{"name":"比比赞","gmv":0.03}],"grain":[{"name":"西麦","gmv":9.41},{"name":"桂格","gmv":3.8},{"name":"欧扎克","gmv":1.35},{"name":"金味","gmv":1.27},{"name":"欣善怡","gmv":1.2},{"name":"卡乐b","gmv":1.06},{"name":"江中食疗","gmv":0.95},{"name":"稻小呆","gmv":0.77},{"name":"阴山优麦","gmv":0.74},{"name":"隆嘉盛","gmv":0.58},{"name":"穗格氏","gmv":0.56},{"name":"世壮","gmv":0.5},{"name":"山姆会员店","gmv":0.34},{"name":"厨籽康","gmv":0.32},{"name":"泰城谷匠","gmv":0.32},{"name":"暴走工坊","gmv":0.32},{"name":"馋小德","gmv":0.31}],"freeze":[{"name":"有零有食","gmv":0.51},{"name":"甄磨坊","gmv":0.17},{"name":"致每","gmv":0.05},{"name":"原果探鲜","gmv":0.03},{"name":"山姆会员店","gmv":0.03},{"name":"润物说","gmv":0.03},{"name":"喵在其中","gmv":0.02},{"name":"市舶士","gmv":0.02},{"name":"三只松鼠","gmv":0.02},{"name":"盐津铺子","gmv":0.02},{"name":"立兴","gmv":0.02},{"name":"全福德","gmv":0.01},{"name":"好想你","gmv":0.01},{"name":"小市一庄","gmv":0.01},{"name":"檬冻","gmv":0.01},{"name":"甘源","gmv":0.01}],"cheese":[{"name":"妙可蓝多","gmv":6.69},{"name":"kiri","gmv":2.73},{"name":"奶酪博士","gmv":2.61},{"name":"伊利","gmv":1.32},{"name":"西域皇后","gmv":1.29},{"name":"百吉福","gmv":1.21},{"name":"安佳","gmv":0.98},{"name":"瑞慕","gmv":0.62},{"name":"琪雷萨","gmv":0.54},{"name":"牧民人家","gmv":0.39},{"name":"飞鹤","gmv":0.32},{"name":"妙飞","gmv":0.31},{"name":"西域华腾","gmv":0.3},{"name":"乐芝牛","gmv":0.3},{"name":"辛尼里奇","gmv":0.26}],"funccandy":[{"name":"优姿曼","gmv":0.48},{"name":"徐福记","gmv":0.36},{"name":"贝欧宝","gmv":0.21},{"name":"埃尔忒弥斯","gmv":0.14},{"name":"阿麦斯","gmv":0.21},{"name":"解龄","gmv":0.16},{"name":"旺旺","gmv":0.15},{"name":"OMEK","gmv":0.14},{"name":"口力","gmv":0.12},{"name":"珍宝珠","gmv":0.11},{"name":"慢严舒柠","gmv":0.07},{"name":"泰尔","gmv":0.11},{"name":"悠哈","gmv":0.1},{"name":"茶颜清","gmv":0.09},{"name":"甜睡","gmv":0.09},{"name":"彩虹糖","gmv":0.08},{"name":"哈瑞宝","gmv":0.03},{"name":"二宝","gmv":0.05}]};
 
 const CAT_META = {
   nuts:  {icon:'🌰', name:'坚果炒货'},
@@ -820,11 +820,9 @@ const CAT_META = {
   dried: {icon:'🍑', name:'蜜饯果干'},
   tofu:  {icon:'🫘', name:'豆干卤制'},
   grain: {icon:'🌾', name:'谷物/麦片'},
-  seaweed:{icon:'🌿', name:'海苔/海味'},
   freeze:{icon:'❄️', name:'冻干零食'},
   cheese:{icon:'🧀', name:'奶酪零食'},
-  konjac:{icon:'🪷', name:'魔芋零食'},
-  funccandy:{icon:'💊', name:'功能软糖'},
+  funccandy:{icon:'💊', name:'功能软糖/功能性零食'},
 };
 
 // ===== Tab切换 =====
@@ -843,7 +841,7 @@ function switchTab(id, el) {
 
 
 
-// ===== 全品类打分数据（14品类 + 蛋白棒）=====
+// ===== 全品类打分数据（12品类 + 蛋白棒）=====
 // zone: mature / growth / emerging
 // MA = 预算规模×0.35 + 市场增速×0.35 + 头部可攻性×0.15 + 新兴活跃×0.15
 // ATW = 内容存量×0.20 + 内容增速×0.15 + 决策链路×0.25 + 解决方案成熟×0.40
@@ -870,18 +868,12 @@ const ALL_CAT_SCORES = [
   {key:'tofu',   name:'豆干/卤制/魔芋', icon:'🫘', zone:'growth', gmv:43, yoy:17.0,
    ma:[3,3,3,3], atw:[3,3,3,3], advertiser:'中', potential:'高', new_brand:'中'},
   // Emerging
-  {key:'konjac',    name:'豆干/卤制/魔芋', icon:'🪷', zone:'emerging', gmv:6.1, yoy:70.0,
-   ma:[2,5,1,4], atw:[2,5,4,2], advertiser:'低', potential:'高', new_brand:'高'},
-  {key:'funccandy', name:'功能软糖', icon:'💊', zone:'emerging', gmv:5.0, yoy:20.0,
+  {key:'funccandy', name:'功能软糖/功能性零食', icon:'💊', zone:'emerging', gmv:5.0, yoy:20.0,
    ma:[2,4,1,5], atw:[2,4,4,2], advertiser:'低', potential:'高', new_brand:'高'},
   {key:'grain',     name:'谷物/麦片', icon:'🌾', zone:'emerging', gmv:19,  yoy:15.0,
    ma:[3,4,3,3], atw:[3,3,3,3], advertiser:'中', potential:'高', new_brand:'高'},
-  {key:'seaweed',   name:'海苔/海味', icon:'🌿', zone:'emerging', gmv:5.5, yoy:10.0,
-   ma:[2,3,3,2], atw:[2,3,3,2], advertiser:'低', potential:'中', new_brand:'中'},
   {key:'freeze',    name:'冻干零食', icon:'❄️', zone:'emerging', gmv:0.7, yoy:15.0,
    ma:[1,3,1,3], atw:[1,3,3,1], advertiser:'低', potential:'低', new_brand:'中'},
-  {key:'proteinbar',name:'蛋白棒/能量棒', icon:'💪', zone:'emerging', gmv:4.0, yoy:28.0,
-   ma:[2,5,1,4], atw:[2,4,3,1], advertiser:'低', potential:'中', new_brand:'高', estimated:true},
 ];
 
 function calcMA(d){ const [a,b,c,e]=d.ma; return a*0.35+b*0.35+c*0.15+e*0.15; }
@@ -1001,7 +993,7 @@ function setScoringZone(z, el){
 const BRAND_GROUPS = {
   mature:   ['nuts','dried','biscuit'],                          // 传统成熟区（YoY<0）
   growth:   ['meat','cake','cheese','candy','choco','tofu'],     // 成长竞争区（YoY +4%~+20%）
-  emerging: ['konjac','funccandy','grain','seaweed','freeze'],   // Emerging（规模<¥30亿，高增速）
+  emerging: ['funccandy','grain','frozen'],   // Emerging（规模<¥30亿，高增速）
 };
 
 let currentGroup = 'mature';
@@ -1275,7 +1267,7 @@ function initXhsAdsCharts() {
     {n:'传统糕点/烘焙',  f:1942, y:57.4,  p:31.2, s:0.62, q:'star', b:'好想来·米惦·嘉华鲜花饼·春光·三关六码头·香港美心月饼·轩妈·元祖'},
     {n:'卤味/肉类零食',  f:1557, y:50.8,  p:51.4, s:0.30, q:'grow', b:'劲仔·肥猫鲜森·王小卤·熟道·绝味鸭脖·赵一鸣·荷美尔'},
     {n:'传统糖果/果冻',  f:1412, y:49.5,  p:11.7, s:1.21, q:'star', b:'水一方·徐福记·荷氏·IMINT·珍宝珠·炫迈·曼妥思·阿尔卑斯'},
-    {n:'功能软糖',       f:882,  y:52.8,  p:1.2,  s:7.35, q:'star', b:'生活馆·食验室·NOFUNSHOP·知食大爆炸·家泽优选'},
+    {n:'功能软糖/功能性零食',       f:882,  y:52.8,  p:1.2,  s:7.35, q:'star', b:'生活馆·食验室·NOFUNSHOP·知食大爆炸·家泽优选'},
     {n:'坚果/干果',      f:984,  y:-10.9, p:39.7, s:0.25, q:'low',  b:'薛记炒货·洽洽·甘源·意榛滋·三胖蛋·三只松鼠'},
     {n:'豆干/卤制/魔芋',  f:520,  y:19.9,  p:10.1, s:0.51, q:'hold', b:'卫龙·麻辣王子'},
     {n:'蜜饯/枣梅/果干', f:359,  y:2.7,   p:30.5, s:0.12, q:'low',  b:'邹三和·葡记·有友·来伊份·滇乡阿东'},
