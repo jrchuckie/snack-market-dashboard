@@ -853,10 +853,10 @@ const ALL_CAT_SCORES = [
    ugc:{y25:8.61e8, y24:10.51e8, yoy:-18.0}},  // ★ Y25曝光8.61亿 YoY-18%
   {key:'cake',   name:'传统糕点/烘焙',   icon:'🎂', zone:'growth',   gmv:133, yoy:15.0,
    ma:[4,3,3,3], atw:[1,4,3,3], advertiser:'有', potential:'高', new_brand:'中',
-   ugc:null},  // 待第二批
+   ugc:{y25:9.42e7, y24:8.13e7, yoy:15.9}}  // ★ Y25曝光0.94亿 YoY+15.9%
   {key:'cheese', name:'奶酪零食',        icon:'🧀', zone:'growth',   gmv:143, yoy:9.0,
    ma:[4,3,3,4], atw:[5,4,3,3], advertiser:'中', potential:'高', new_brand:'高',
-   ugc:null},  // 待第二批
+   ugc:{y25:5.19e9, y24:4.48e9, yoy:15.7}}  // ★ Y25曝光51.9亿 YoY+15.7%
   {key:'candy',  name:'传统糖果/果冻',   icon:'🍬', zone:'growth',   gmv:50,  yoy:10.8,
    ma:[3,3,3,2], atw:[2,1,3,3], advertiser:'有', potential:'中', new_brand:'中',
    ugc:null},  // 待第二批
@@ -869,10 +869,10 @@ const ALL_CAT_SCORES = [
   // Emerging
   {key:'funccandy', name:'功能软糖/功能性零食', icon:'💊', zone:'emerging', gmv:5.0, yoy:20.0,
    ma:[2,4,1,5], atw:[3,1,5,3], advertiser:'低', potential:'高', new_brand:'高',
-   ugc:null},  // 待第二批
+   ugc:{y25:7.38e8, y24:9.61e8, yoy:-23.2}}  // ★ Y25曝光7.38亿 YoY-23.2%
   {key:'grain',  name:'谷物/麦片',       icon:'🌾', zone:'emerging', gmv:19,  yoy:15.0,
    ma:[3,4,3,3], atw:[3,1,3,3], advertiser:'中', potential:'高', new_brand:'高',
-   ugc:null},  // 待第二批
+   ugc:{y25:6.37e8, y24:8.89e8, yoy:-28.3}}  // ★ Y25曝光6.37亿 YoY-28.3%
   {key:'freeze', name:'冻干零食',        icon:'❄️', zone:'emerging', gmv:0.7, yoy:15.0,
    ma:[1,3,1,3], atw:[1,2,3,2], advertiser:'低', potential:'低', new_brand:'中',
    ugc:null},  // 待第二批
@@ -975,16 +975,25 @@ function renderMatrix(){
     // x: MA 0-5 → 0-96%，y: ATW 5-0（倒置，加留白）
     const xPct = (ma/5)*92 + 2;
     const yPct = ((5-atw)/5)*88 + 4;
-    const radius = Math.max(18, Math.min(44, Math.sqrt((d.gmv||1))*5.5));
+    // 气泡大小：缩小系数，GMV大的赛道不超过32px半径
+    const radius = Math.max(10, Math.min(32, Math.sqrt((d.gmv||1))*3.2));
+    // 四象限背景色（比区域色更有语义）
+    const bubbleColor = q.color;
     const bubble = document.createElement('div');
-    bubble.style.cssText = `position:absolute;left:${xPct}%;top:${yPct}%;transform:translate(-50%,-50%);width:${radius*2}px;height:${radius*2}px;border-radius:50%;background:${zoneColor};opacity:${est?0.45:0.75};display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:default;transition:all .2s;border:2px solid ${zoneColor};box-shadow:0 0 12px ${zoneColor}44;z-index:1`;
+    bubble.style.cssText = `position:absolute;left:${xPct}%;top:${yPct}%;transform:translate(-50%,-50%);width:${radius*2}px;height:${radius*2}px;border-radius:50%;background:${bubbleColor};opacity:${est?0.35:0.82};display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:default;transition:all .2s;border:1.5px solid rgba(255,255,255,0.25);box-shadow:0 0 8px ${bubbleColor}55;z-index:1`;
     bubble.title = `${d.icon} ${d.name}\nMA=${ma.toFixed(2)}  ATW=${atw.toFixed(2)}\nGMV≈¥${d.gmv}亿  YoY${d.yoy===null?'重构中':(d.yoy>0?'+':'')+d.yoy+'%'}\n象限: ${q.label}\n商家机会: 在投${d.advertiser} / 潜力${d.potential} / 新品牌${d.new_brand}`;
-    bubble.innerHTML = `<span style="font-size:${radius>24?'13':'10'}px;font-weight:700;color:#fff;text-align:center;line-height:1.2;padding:0 3px;max-width:${radius*2-8}px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${d.name.length>4?d.name.slice(0,4)+'…':d.name}</span>`;
+    // 气泡内显示图标，外部用label显示名称
+    bubble.innerHTML = `<span style="font-size:${radius>20?'14':'11'}px;line-height:1">${d.icon}</span>`;
+    // 外部标签
+    const label = document.createElement('div');
+    label.style.cssText = `position:absolute;left:${xPct}%;top:calc(${yPct}% + ${radius+3}px);transform:translateX(-50%);font-size:10px;color:#c8d0de;white-space:nowrap;font-weight:500;pointer-events:none;text-shadow:0 1px 3px rgba(0,0,0,0.8);z-index:2`;
+    label.textContent = d.name;
+    container.appendChild(label);
     bubble.onmouseenter = function(){
-      this.style.opacity='1'; this.style.transform='translate(-50%,-50%) scale(1.15)'; this.style.zIndex='20';
+      this.style.opacity='1'; this.style.transform='translate(-50%,-50%) scale(1.25)'; this.style.zIndex='20';
     };
     bubble.onmouseleave = function(){
-      this.style.opacity=est?'0.45':'0.75'; this.style.transform='translate(-50%,-50%) scale(1)'; this.style.zIndex='1';
+      this.style.opacity=est?'0.35':'0.82'; this.style.transform='translate(-50%,-50%) scale(1)'; this.style.zIndex='1';
     };
     container.appendChild(bubble);
   });
