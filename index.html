@@ -1430,6 +1430,8 @@ function safeInitCharts() {
 window.addEventListener('load', function() {
   rebuildBrandCats('mature');
   safeInitCharts();
+  // 打分矩阵预初始化（tab隐藏时也渲染好，切换后立即可见）
+  setTimeout(initScoring, 200);
   // 品牌投放标注（延迟执行）
   setTimeout(markBrands, 600);
   setTimeout(markBrands, 1800);
