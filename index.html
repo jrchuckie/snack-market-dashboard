@@ -1083,10 +1083,12 @@ function rebuildBrandCats(group) {
     function buildList(arr) {
       const div=document.createElement('div');
       div.className='blist';
-      div.innerHTML='<div class="blist-hdr"><span>品牌</span><span>Y25 GMV</span></div>';
+      div.innerHTML='<div class="blist-hdr"><span>品牌</span><span style="min-width:60px;text-align:center">YoY</span><span>Y25 GMV</span></div>';
       arr.forEach((b,i)=>{
-        const rk=mid+arr.indexOf(b)<=mid?i+1:mid+arr.indexOf(b)+1;
-        div.innerHTML+=`<div class="bitem"><span class="brk${i<3?' t3':''}">${i+1}</span><span class="bnm">${b.name}</span><div class="bbar"><div class="bbar-bg"><div class="bbar-fg" style="width:${(b.gmv/maxGmv*100).toFixed(0)}%"></div></div></div><span class="bgmv">¥${b.gmv}亿</span></div>`;
+        const yoyStr = (b.yoy !== undefined && b.yoy !== null)
+          ? `<span style="color:${b.yoy>0?'#10b981':b.yoy<0?'#f87171':'#94a3b8'};font-size:11px;font-weight:600;min-width:60px;text-align:center;display:inline-block">${b.yoy>0?'+':''}${b.yoy.toFixed(1)}%</span>`
+          : `<span style="color:#3a4255;font-size:10px;min-width:60px;text-align:center;display:inline-block">—</span>`;
+        div.innerHTML+=`<div class="bitem"><span class="brk${i<3?' t3':''}">${i+1}</span><span class="bnm">${b.name}</span>${yoyStr}<div class="bbar"><div class="bbar-bg"><div class="bbar-fg" style="width:${(b.gmv/maxGmv*100).toFixed(0)}%"></div></div></div><span class="bgmv">¥${b.gmv}亿</span></div>`;
       });
       return div;
     }
